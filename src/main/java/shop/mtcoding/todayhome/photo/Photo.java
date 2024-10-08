@@ -21,6 +21,7 @@ public class Photo {
 
     private String url;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
