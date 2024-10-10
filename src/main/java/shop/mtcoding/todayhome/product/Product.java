@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.todayhome.brand.Brand;
 import shop.mtcoding.todayhome.photo.Photo;
 import shop.mtcoding.todayhome.option.Option;
 
@@ -28,6 +29,8 @@ public class Product {
 
     private String productName;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Brand brand;
 
     @OneToMany(mappedBy ="product", fetch = FetchType.LAZY)
     private List<Option> options;
@@ -37,11 +40,12 @@ public class Product {
     private List<Photo> photos;
 
     @Builder
-    public Product(int id, String title, String content, String productName, List<Option> options, List<Photo> photos) {
+    public Product(int id, String title, String content, String productName, Brand brand, List<Option> options, List<Photo> photos) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.productName = productName;
+        this.brand = brand;
         this.options = options;
         this.photos = photos;
     }
