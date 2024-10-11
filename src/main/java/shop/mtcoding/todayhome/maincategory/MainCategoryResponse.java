@@ -10,12 +10,12 @@ public class MainCategoryResponse {
 
     @Data
     public static class MainCategoryDTO{
-        private Integer id;
+        private Integer seleted;
         private String name;
         private List<SubCategoryDTO> subCategoryDTOS = new ArrayList<>();
 
         public MainCategoryDTO(MainCategory mainCategory){
-            this.id = mainCategory.getId();
+            this.seleted = mainCategory.getId();
             this.name=mainCategory.getName();
 
             if(mainCategory.getSubCategory() != null){

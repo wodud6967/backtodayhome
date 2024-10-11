@@ -17,6 +17,36 @@ VALUES ('패브릭');
 INSERT INTO maincategory_tb (name)
 VALUES ('가전·디지털');
 
+INSERT INTO maincategory_tb (name)
+VALUES ('식품');
+
+INSERT INTO maincategory_tb (name)
+VALUES ('데코·식물');
+
+INSERT INTO maincategory_tb (name)
+VALUES ('조명');
+
+INSERT INTO maincategory_tb (name)
+VALUES ('수납·정리');
+INSERT INTO maincategory_tb (name)
+VALUES ('생활용품');
+INSERT INTO maincategory_tb (name)
+VALUES ('생필품');
+INSERT INTO maincategory_tb (name)
+VALUES ('유아·아동');
+INSERT INTO maincategory_tb (name)
+VALUES ('반려동물');
+INSERT INTO maincategory_tb (name)
+VALUES ('캠핑·레저');
+INSERT INTO maincategory_tb (name)
+VALUES ('공구·DIY');
+INSERT INTO maincategory_tb (name)
+VALUES ('인테리어시공');
+INSERT INTO maincategory_tb (name)
+VALUES ('렌탈·구독');
+
+
+
 -- 침대 카테고리의 서브 카테고리 (싱글, 퀸, 킹)
 INSERT INTO subcategory_tb (name, main_category_id)
 VALUES ('침대', 1);
