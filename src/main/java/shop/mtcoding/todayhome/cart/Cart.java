@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.todayhome.option.Option;
+import shop.mtcoding.todayhome.product.Product;
 import shop.mtcoding.todayhome.user.User;
 
 @Getter
@@ -24,7 +25,8 @@ public class Cart {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Option option;
+    private Product product;
+
 
     private int count;
 
@@ -33,10 +35,10 @@ public class Cart {
     private int totalPrice;
 
     @Builder
-    public Cart(int id, User user, Option option, int count, int price, int totalPrice) {
+    public Cart(int id, User user, Product product, int count, int price, int totalPrice) {
         this.id = id;
         this.user = user;
-        this.option = option;
+        this.product = product;
         this.count = count;
         this.price = price;
         this.totalPrice = totalPrice;

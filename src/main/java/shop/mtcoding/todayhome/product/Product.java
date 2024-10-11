@@ -31,12 +31,16 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
 
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Option>  option;
+
 
     @Builder
-    public Product(int id, String name, int price, Post post) {
+    public Product(int id, String name, int price, Post post, List<Option> option) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.post = post;
+        this.option = option;
     }
 }
