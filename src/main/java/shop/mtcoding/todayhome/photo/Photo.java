@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import shop.mtcoding.todayhome.product.Product;
+import shop.mtcoding.todayhome.post.Post;
 
 @Getter
 @Setter
@@ -23,13 +23,13 @@ public class Photo {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
+    private Post post;
 
 
     @Builder
-    public Photo(int id, String url, Product product) {
+    public Photo(int id, String url, Post post) {
         this.id = id;
         this.url = url;
-        this.product = product;
+        this.post = post;
     }
 }

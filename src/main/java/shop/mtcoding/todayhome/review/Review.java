@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import shop.mtcoding.todayhome.product.Product;
+import shop.mtcoding.todayhome.post.Post;
 import shop.mtcoding.todayhome.user.User;
 
 import java.sql.Timestamp;
@@ -23,7 +23,7 @@ public class Review {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
+    private Post post;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
@@ -38,9 +38,9 @@ public class Review {
 
 
     @Builder
-    public Review(int id, Product product, User user, String content, String url, double star, Timestamp createdAt) {
+    public Review(int id, Post post, User user, String content, String url, double star, Timestamp createdAt) {
         this.id = id;
-        this.product = product;
+        this.post = post;
         this.user = user;
         this.content = content;
         this.url = url;

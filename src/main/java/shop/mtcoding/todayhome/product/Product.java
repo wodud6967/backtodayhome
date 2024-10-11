@@ -7,8 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.todayhome.brand.Brand;
-import shop.mtcoding.todayhome.photo.Photo;
 import shop.mtcoding.todayhome.option.Option;
+import shop.mtcoding.todayhome.photo.Photo;
+import shop.mtcoding.todayhome.post.Post;
 
 import java.util.List;
 
@@ -23,30 +24,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String title;
+    private String name;
 
-    private String content;
-
-    private String productName;
+    private int price;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Brand brand;
+    private Post post;
 
-    @OneToMany(mappedBy ="product", fetch = FetchType.LAZY)
-    private List<Option> options;
-
-
-    @OneToMany(mappedBy ="product", fetch = FetchType.LAZY)
-    private List<Photo> photos;
 
     @Builder
-    public Product(int id, String title, String content, String productName, Brand brand, List<Option> options, List<Photo> photos) {
+    public Product(int id, String name, int price, Post post) {
         this.id = id;
-        this.title = title;
-        this.content = content;
-        this.productName = productName;
-        this.brand = brand;
-        this.options = options;
-        this.photos = photos;
+        this.name = name;
+        this.price = price;
+        this.post = post;
     }
 }
