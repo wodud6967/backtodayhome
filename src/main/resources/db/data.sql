@@ -87,6 +87,12 @@ VALUES ('에이스 침대');
 INSERT INTO brand_tb (brand_name)
 VALUES ('한샘 침대');
 
+INSERT INTO brand_tb (brand_name)
+VALUES ('템퍼');
+
+INSERT INTO brand_tb (brand_name)
+VALUES ('슬로우베드');
+
 -- 의자 브랜드
 INSERT INTO brand_tb (brand_name)
 VALUES ('시디즈');
@@ -96,27 +102,77 @@ VALUES ('듀오백');
 
 INSERT INTO brand_tb (brand_name)
 VALUES ('퍼시스');
--- 침대 관련 게시물 (subcategory_id = 1: 침대, brand_id = 1: 시몬스, 2: 에이스 침대, 3: 한샘 침대)
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id)
-VALUES ('시몬스 침대 - 퀸사이즈', '시몬스의 퀸사이즈 침대는 편안한 수면을 제공합니다.', 1200000, 'simmons_queen.jpg', 1, 1);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id)
-VALUES ('에이스 침대 - 싱글사이즈', '에이스 침대는 싱글 침대로 최상의 품질을 제공합니다.', 800000, 'ace_single.jpg', 1, 2);
+-- 침대 관련 게시물 추가 (브랜드명 변경)
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편안한침대 시몬스', '편안한 시몬스 침대는 최고의 편안함을 제공합니다.', 1200000, 'simmons_comfort.jpg', 1, 1, TIMESTAMPADD(HOUR, -1, CURRENT_TIMESTAMP));
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id)
-VALUES ('한샘 침대 - 킹사이즈', '한샘의 킹사이즈 침대는 넉넉한 공간을 제공합니다.', 1500000, 'hanssem_king.jpg', 1, 3);
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('최고의침대 에이스', '에이스 침대는 편안한 수면을 위한 최고의 선택입니다.', 800000, 'ace_best.jpg', 1, 2, TIMESTAMPADD(HOUR, -2, CURRENT_TIMESTAMP));
 
--- 의자 관련 게시물 (subcategory_id = 2: 의자, brand_id = 4: 시디즈, 5: 듀오백, 6: 퍼시스)
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id)
-VALUES ('시디즈 사무용 의자', '시디즈 사무용 의자는 편안한 자세를 유지할 수 있게 도와줍니다.', 300000, 'sidiz_office.jpg', 2, 4);
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 넉넉한 공간을 제공합니다.', 1500000, 'hanssem_relax.jpg', 1, 3, TIMESTAMPADD(HOUR, -3, CURRENT_TIMESTAMP));
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id)
-VALUES ('듀오백 학생용 의자', '듀오백 학생용 의자는 장시간 학습에 적합한 편안함을 제공합니다.', 150000, 'duoback_student.jpg', 2, 5);
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편안한침대 라텍스 시몬스', '시몬스의 라텍스 침대는 최고의 지지력을 제공합니다.', 1300000, 'simmons_latex_comfort.jpg', 1, 1, TIMESTAMPADD(HOUR, -4, CURRENT_TIMESTAMP));
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id)
-VALUES ('퍼시스 사무용 의자', '퍼시스의 사무용 의자는 현대적인 디자인과 편안함을 제공합니다.', 250000, 'percis_office.jpg', 2, 6);
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('고급침대 에이스', '에이스 프리미엄 침대는 최상의 품질을 자랑합니다.', 1400000, 'ace_premium_best.jpg', 1, 2, TIMESTAMPADD(HOUR, -5, CURRENT_TIMESTAMP));
 
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('모던한침대 한샘', '한샘의 모던한 침대는 경제적인 선택입니다.', 850000, 'hanssem_modern.jpg', 1, 3, TIMESTAMPADD(HOUR, -6, CURRENT_TIMESTAMP));
 
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('럭셔리침대 시몬스', '시몬스 프리미엄 침대는 넉넉한 공간과 편안함을 제공합니다.', 1600000, 'simmons_luxury.jpg', 1, 1, TIMESTAMPADD(HOUR, -7, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편안한수면 에이스', '에이스 프리미엄 침대는 편안한 수면을 보장합니다.', 1200000, 'ace_sleep_comfort.jpg', 1, 2, TIMESTAMPADD(HOUR, -8, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('클래식침대 한샘', '한샘 클래식 침대는 최고의 편안함을 제공합니다.', 1700000, 'hanssem_classic.jpg', 1, 3, TIMESTAMPADD(HOUR, -9, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편리한침대 시몬스', '시몬스의 침대는 합리적인 가격에 넉넉한 공간을 제공합니다.', 1100000, 'simmons_convenient.jpg', 1, 1, TIMESTAMPADD(HOUR, -10, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('경제적인침대 에이스', '에이스 침대는 가성비가 뛰어납니다.', 700000, 'ace_economical.jpg', 1, 2, TIMESTAMPADD(HOUR, -11, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('프리미엄침대 한샘', '한샘 프리미엄 침대는 넓고 편안한 수면을 제공합니다.', 1400000, 'hanssem_premium.jpg', 1, 3, TIMESTAMPADD(HOUR, -12, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('지지력좋은침대 시몬스', '시몬스의 라텍스 침대는 최고의 지지력을 제공합니다.', 1200000, 'simmons_supportive.jpg', 1, 1, TIMESTAMPADD(HOUR, -13, CURRENT_TIMESTAMP));
+
+-- 침대 관련 게시물 추가 (브랜드명 변경)
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편안한침대 시몬스', '편안한 시몬스 침대는 최고의 편안함을 제공합니다.', 1200000, 'simmons_comfort.jpg', 1, 1, TIMESTAMPADD(HOUR, -1, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('최고의침대 에이스', '에이스 침대는 편안한 수면을 위한 최고의 선택입니다.', 800000, 'ace_best.jpg', 1, 2, TIMESTAMPADD(HOUR, -2, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 넉넉한 공간을 제공합니다.', 1500000, 'hanssem_relax.jpg', 1, 3, TIMESTAMPADD(HOUR, -3, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편안한침대 템퍼', '템퍼의 편안한 침대는 편안한 수면을 보장합니다.', 1400000, 'tempur_comfort.jpg', 1, 4, TIMESTAMPADD(HOUR, -4, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('럭셔리침대 슬로우베드', '슬로우베드의 럭셔리 침대는 프리미엄 수면을 제공합니다.', 1700000, 'slowbed_luxury.jpg', 1, 5, TIMESTAMPADD(HOUR, -5, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편안한침대 시몬스', '시몬스의 최신형 편안한 침대는 지지력과 편안함을 제공합니다.', 1600000, 'simmons_latest.jpg', 1, 1, TIMESTAMPADD(HOUR, -6, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('최고의침대 에이스', '에이스의 프리미엄 침대는 깊은 수면을 위한 최고의 제품입니다.', 1800000, 'ace_premium.jpg', 1, 2, TIMESTAMPADD(HOUR, -7, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 편안한 수면을 제공합니다.', 1300000, 'hanssem_relax2.jpg', 1, 3, TIMESTAMPADD(HOUR, -8, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('편안한침대 템퍼', '템퍼의 프리미엄 침대는 지지력과 편안함을 극대화합니다.', 1500000, 'tempur_premium.jpg', 1, 4, TIMESTAMPADD(HOUR, -9, CURRENT_TIMESTAMP));
+
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
+VALUES ('럭셔리침대 슬로우베드', '슬로우베드의 최고급 침대는 고객의 만족을 보장합니다.', 1900000, 'slowbed_deluxe.jpg', 1, 5, TIMESTAMPADD(HOUR, -10, CURRENT_TIMESTAMP));
 
 -- 시몬스 침대 상품 등록 (post_id = 1)
 INSERT INTO product_tb (name, price, post_id)
@@ -185,17 +241,153 @@ VALUES ('한샘 킹사이즈 침대 매트리스', 600000, 3);  -- 한샘 침대
 INSERT INTO product_tb (name, price, post_id)
 VALUES ('한샘 킹사이즈 침대 프레임', 900000, 3);  -- 한샘 침대 게시물의 ID가 3이라고 가정
 
--- 시디즈 의자 게시물에 등록할 상품
+-- 시몬스 침대 - 라텍스 퀸사이즈 (post_id = 4)
 INSERT INTO product_tb (name, price, post_id)
-VALUES ('시디즈 사무용 의자', 200000, 4);  -- 시디즈 의자 게시물의 ID가 4이라고 가정
+VALUES ('시몬스 라텍스 퀸 매트리스', 500000, 4);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 퀸 프레임', 700000, 4);
 
--- 듀오백 의자 게시물에 등록할 상품
+-- 에이스 침대 - 프리미엄 킹사이즈 (post_id = 5)
 INSERT INTO product_tb (name, price, post_id)
-VALUES ('듀오백 학생용 의자', 150000, 5);  -- 듀오백 의자 게시물의 ID가 5이라고 가정
+VALUES ('에이스 프리미엄 킹 매트리스', 600000, 5);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 킹 프레임', 800000, 5);
 
--- 퍼시스 의자 게시물에 등록할 상품
+-- 한샘 침대 - 더블사이즈 (post_id = 6)
 INSERT INTO product_tb (name, price, post_id)
-VALUES ('퍼시스 사무용 의자', 250000, 6);
+VALUES ('한샘 더블사이즈 매트리스', 400000, 6);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 더블사이즈 프레임', 600000, 6);
+
+-- 시몬스 침대 - 프리미엄 킹사이즈 (post_id = 7)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 프리미엄 킹 매트리스', 800000, 7);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 프리미엄 킹 프레임', 1000000, 7);
+
+-- 에이스 침대 - 프리미엄 퀸사이즈 (post_id = 8)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 퀸 매트리스', 500000, 8);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 퀸 프레임', 700000, 8);
+
+-- 한샘 침대 - 킹사이즈 라텍스 (post_id = 9)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 킹사이즈 라텍스 매트리스', 900000, 9);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 킹사이즈 라텍스 프레임', 1100000, 9);
+
+-- 시몬스 침대 - 더블사이즈 (post_id = 10)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 더블사이즈 매트리스', 550000, 10);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 더블사이즈 프레임', 750000, 10);
+
+-- 에이스 침대 - 싱글사이즈 (post_id = 11)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 싱글사이즈 매트리스', 300000, 11);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 싱글사이즈 프레임', 500000, 11);
+
+-- 한샘 침대 - 프리미엄 퀸사이즈 (post_id = 12)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 프리미엄 퀸 매트리스', 600000, 12);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 프리미엄 퀸 프레임', 800000, 12);
+
+-- 시몬스 침대 - 라텍스 더블사이즈 (post_id = 13)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 매트리스', 650000, 13);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 프레임', 850000, 13);
+
+-- 시몬스 침대 - 라텍스 더블사이즈 (post_id = 13)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 매트리스', 650000, 13);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 프레임', 850000, 13);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 베개', 120000, 13);
+
+-- 에이스 침대 - 프리미엄 킹사이즈 (post_id = 14)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 킹 매트리스', 1200000, 14);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 킹 프레임', 1300000, 14);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 킹 베개', 150000, 14);
+
+-- 한샘 침대 - 더블사이즈 (post_id = 15)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 더블 매트리스', 850000, 15);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 더블 프레임', 950000, 15);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 더블 베개', 110000, 15);
+
+-- 시몬스 침대 - 프리미엄 킹사이즈 (post_id = 16)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 프리미엄 킹 매트리스', 1500000, 16);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 프리미엄 킹 프레임', 1600000, 16);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 프리미엄 킹 베개', 180000, 16);
+
+-- 에이스 침대 - 프리미엄 퀸사이즈 (post_id = 17)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 퀸 매트리스', 1100000, 17);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 퀸 프레임', 1200000, 17);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 퀸 베개', 140000, 17);
+
+-- 한샘 침대 - 킹사이즈 라텍스 (post_id = 18)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 킹사이즈 라텍스 매트리스', 1700000, 18);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 킹사이즈 라텍스 프레임', 1800000, 18);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 킹사이즈 라텍스 베개', 200000, 18);
+
+-- 시몬스 침대 - 더블사이즈 (post_id = 19)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 더블 매트리스', 1100000, 19);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 더블 프레임', 1200000, 19);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 더블 베개', 130000, 19);
+
+-- 에이스 침대 - 싱글사이즈 (post_id = 20)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 싱글 매트리스', 700000, 20);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 싱글 프레임', 800000, 20);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 싱글 베개', 90000, 20);
+
+-- 한샘 침대 - 프리미엄 퀸사이즈 (post_id = 21)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 프리미엄 퀸 매트리스', 1400000, 21);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 프리미엄 퀸 프레임', 1500000, 21);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('한샘 프리미엄 퀸 베개', 160000, 21);
+
+-- 시몬스 침대 - 라텍스 더블사이즈 (post_id = 22)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 매트리스', 1200000, 22);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 프레임', 1300000, 22);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('시몬스 라텍스 더블 베개', 140000, 22);
+
+-- 에이스 침대 - 프리미엄 싱글사이즈 (post_id = 23)
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 싱글 매트리스', 900000, 23);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 싱글 프레임', 1000000, 23);
+INSERT INTO product_tb (name, price, post_id)
+VALUES ('에이스 프리미엄 싱글 베개', 110000, 23);
 
 -- 옵션 타입 (OptionType) 데이터
 INSERT INTO optiontype_tb (type)
@@ -238,6 +430,79 @@ VALUES ('화이트', 0, 2, 2);  -- 기본 가격
 INSERT INTO option_tb (content, price, product_id, option_type_id)
 VALUES ('블랙', 5000, 2, 2);  -- 기본 가격 + 5000원
 
+-- 시몬스 침대에 컬러 옵션 추가 (product_id = 13)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 13, 2);  -- 기본 가격
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 13, 2);  -- 기본 가격 + 5000원
+
+-- 에이스 침대에 사이즈 옵션 추가 (product_id = 14)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('싱글', 5000, 14, 1);  -- 기본 가격 + 5000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('퀸', 10000, 14, 1);  -- 기본 가격 + 10000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('킹', 15000, 14, 1);  -- 기본 가격 + 15000원
+
+-- 한샘 침대에 컬러 옵션 추가 (product_id = 15)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 15, 2);  -- 기본 가격
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 15, 2);  -- 기본 가격 + 5000원
+
+-- 시몬스 침대에 컬러 옵션 추가 (product_id = 16)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 16, 2);  -- 기본 가격
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 16, 2);  -- 기본 가격 + 5000원
+
+-- 에이스 침대에 사이즈 옵션 추가 (product_id = 17)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('싱글', 5000, 17, 1);  -- 기본 가격 + 5000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('퀸', 10000, 17, 1);  -- 기본 가격 + 10000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('킹', 15000, 17, 1);  -- 기본 가격 + 15000원
+
+-- 한샘 침대에 컬러 옵션 추가 (product_id = 18)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 18, 2);  -- 기본 가격
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 18, 2);  -- 기본 가격 + 5000원
+
+-- 시몬스 침대에 컬러 옵션 추가 (product_id = 19)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 19, 2);  -- 기본 가격
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 19, 2);  -- 기본 가격 + 5000원
+
+-- 에이스 침대에 사이즈 옵션 추가 (product_id = 20)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('싱글', 5000, 20, 1);  -- 기본 가격 + 5000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('퀸', 10000, 20, 1);  -- 기본 가격 + 10000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('킹', 15000, 20, 1);  -- 기본 가격 + 15000원
+
+-- 한샘 침대에 컬러 옵션 추가 (product_id = 21)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 21, 2);  -- 기본 가격
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 21, 2);  -- 기본 가격 + 5000원
+
+-- 시몬스 침대에 컬러 옵션 추가 (product_id = 22)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 22, 2);  -- 기본 가격
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 22, 2);  -- 기본 가격 + 5000원
+
+-- 에이스 침대에 사이즈 옵션 추가 (product_id = 23)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('싱글', 5000, 23, 1);  -- 기본 가격 + 5000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('퀸', 10000, 23, 1);  -- 기본 가격 + 10000원
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('킹', 15000, 23, 1);  -- 기본 가격 + 15000원
 -- 리뷰 더미 데이터
 
 -- 시몬스 침대에 대한 리뷰 (post_id = 1, user_id = 1)
@@ -258,19 +523,8 @@ VALUES (2, 1, '프레임 디자인이 마음에 들고, 수면 품질이 좋아�
 INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
 VALUES (3, 2, '킹사이즈 침대 정말 넉넉하고 좋아요!', 'review5.jpg', 5.0, CURRENT_TIMESTAMP);
 
--- 시디즈 의자에 대한 리뷰 (post_id = 4, user_id = 3)
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
-VALUES (4, 3, '시디즈 의자는 정말 편안합니다.', 'review6.jpg', 4.7, CURRENT_TIMESTAMP);
 
--- 듀오백 의자에 대한 리뷰 (post_id = 5, user_id = 1)
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
-VALUES (5, 1, '듀오백 의자는 장시간 사용에도 편안함을 유지합니다.', 'review7.jpg', 4.5, CURRENT_TIMESTAMP);
 
--- 퍼시스 의자에 대한 리뷰 (post_id = 6, user_id = 2)
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
-VALUES (6, 2, '퍼시스 의자는 가격 대비 성능이 훌륭합니다.', 'review8.jpg', 4.3, CURRENT_TIMESTAMP);
-
--- 장바구니 더미 데이터
 
 -- user_id = 1 사용자가 product_id = 1 (시몬스 침대 싱글)을 장바구니에 추가
 INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
@@ -298,7 +552,78 @@ VALUES (2, 'merchant_002');
 INSERT INTO order_tb (user_id, merchant_uid)
 VALUES (3, 'merchant_003');
 
+-- user_id = 1 사용자가 다양한 상품을 구매한 경우
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (1, 'merchant_004');
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (1, 'merchant_005');
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (1, 'merchant_006');
+
+-- user_id = 2 사용자가 다양한 상품을 구매한 경우
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (2, 'merchant_007');
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (2, 'merchant_008');
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (2, 'merchant_009');
+
+-- user_id = 3 사용자가 다양한 상품을 구매한 경우
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (3, 'merchant_010');
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (3, 'merchant_011');
+INSERT INTO order_tb (user_id, merchant_uid)
+VALUES (3, 'merchant_012');
+
 -- 주문 상세 테이블 더미 데이터
+-- 주문 상세 정보: user_id = 1의 주문에 대한 상품 구매 정보
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (4, 1, 2, 1200000, 2400000);  -- 시몬스 퀸사이즈 침대 2개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (4, 15, 1, 850000, 850000);   -- 한샘 더블사이즈 침대 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (5, 25, 3, 800000, 2400000);  -- 에이스 싱글사이즈 침대 3개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (6, 50, 1, 300000, 300000);   -- 듀오백 학생용 의자 1개
+
+-- 주문 상세 정보: user_id = 2의 주문에 대한 상품 구매 정보
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (7, 5, 1, 600000, 600000);   -- 시몬스 프리미엄 킹사이즈 침대 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (7, 20, 2, 700000, 1400000); -- 시몬스 더블사이즈 침대 2개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (8, 35, 1, 1500000, 1500000); -- 한샘 킹사이즈 침대 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (9, 60, 2, 250000, 500000);   -- 퍼시스 사무용 의자 2개
+
+-- 주문 상세 정보: user_id = 3의 주문에 대한 상품 구매 정보
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (10, 2, 1, 800000, 800000);  -- 에이스 싱글사이즈 침대 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (10, 40, 3, 1300000, 3900000); -- 시몬스 라텍스 퀸사이즈 침대 3개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (11, 55, 1, 450000, 450000);  -- 에이스 매트리스 퀸 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (12, 75, 2, 1000000, 2000000); -- 한샘 프리미엄 퀸사이즈 침대 2개
+
+-- 추가로 user_id = 1의 주문에 대한 상품 정보
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (4, 5, 1, 600000, 600000);  -- 시몬스 프리미엄 킹사이즈 침대 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (5, 30, 2, 1200000, 2400000); -- 에이스 킹사이즈 침대 2개
+
+-- 추가로 user_id = 2의 주문에 대한 상품 정보
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (8, 10, 2, 1500000, 3000000); -- 한샘 라텍스 킹사이즈 침대 2개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (9, 45, 1, 800000, 800000);  -- 시몬스 더블사이즈 침대 1개
+
+-- 추가로 user_id = 3의 주문에 대한 상품 정보
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (11, 50, 1, 1200000, 1200000); -- 듀오백 학생용 의자 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (12, 65, 2, 1500000, 3000000); -- 한샘 킹사이즈 침대 2개
 
 -- 주문 1 (order_id = 1)에서 시몬스 침대 (product_id = 1)를 2개 구매
 INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
@@ -322,9 +647,30 @@ VALUES (1, 'imp_001');
 INSERT INTO payment_tb (order_id, imp_uid)
 VALUES (2, 'imp_002');
 
+
 -- 주문 3 (order_id = 3)에 대한 결제 내역
 INSERT INTO payment_tb (order_id, imp_uid)
 VALUES (3, 'imp_003');
+-- 주문 4 ~ 12의 결제 내역 추가
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (4, 'imp_004');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (5, 'imp_005');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (6, 'imp_006');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (7, 'imp_007');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (8, 'imp_008');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (9, 'imp_009');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (10, 'imp_010');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (11, 'imp_011');
+INSERT INTO payment_tb (order_id, imp_uid)
+VALUES (12, 'imp_012');
+
 
 
 -- 시몬스 침대 게시물의 사진 (post_id = 1)
@@ -458,3 +804,91 @@ INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
 VALUES (3, 3, 1, 600000, 600000);  -- user_id = 3이 한샘 킹사이즈 침대 1개를 장바구니에 추가
 INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
 VALUES (1, 4, 3, 300000, 900000);  -- user_id = 1이 시디즈 사무용 의자 3개를 장바구니에 추가
+
+-- 주문 4 (order_id = 4)에서 시몬스 침대 매트리스 퀸을 3개 구매
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (4, 1, 3, 500000, 1500000);
+
+-- 주문 5 (order_id = 5)에서 에이스 침대 매트리스 킹을 2개 구매
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (5, 3, 2, 1200000, 2400000);
+
+-- 주문 6 (order_id = 6)에서 한샘 침대 킹사이즈를 1개 구매
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (6, 2, 1, 800000, 800000);
+
+-- 추가 침대 관련 주문 7~10
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (7, 1, 2, 500000, 1000000);
+
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (8, 2, 1, 800000, 800000);
+
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (9, 3, 3, 1200000, 3600000);
+
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (10, 1, 2, 450000, 900000);
+
+
+-- 시몬스 침대 관련 옵션 추가 (사이즈 및 컬러)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('싱글', 5000, 1, 1);  -- 시몬스 침대 - 싱글 사이즈
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('퀸', 10000, 1, 1);  -- 시몬스 침대 - 퀸 사이즈
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('킹', 15000, 1, 1);  -- 시몬스 침대 - 킹 사이즈
+
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 1, 2);  -- 시몬스 침대 - 화이트 컬러
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 1, 2);  -- 시몬스 침대 - 블랙 컬러
+
+-- 에이스 침대 관련 옵션 추가 (사이즈 및 컬러)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('싱글', 5000, 2, 1);  -- 에이스 침대 - 싱글 사이즈
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('퀸', 10000, 2, 1);  -- 에이스 침대 - 퀸 사이즈
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('킹', 15000, 2, 1);  -- 에이스 침대 - 킹 사이즈
+
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 2, 2);  -- 에이스 침대 - 화이트 컬러
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 2, 2);  -- 에이스 침대 - 블랙 컬러
+
+-- 한샘 침대 관련 옵션 추가 (사이즈 및 컬러)
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('킹', 20000, 3, 1);  -- 한샘 침대 - 킹 사이즈
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('더블', 10000, 3, 1);  -- 한샘 침대 - 더블 사이즈
+
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('화이트', 0, 3, 2);  -- 한샘 침대 - 화이트 컬러
+INSERT INTO option_tb (content, price, product_id, option_type_id)
+VALUES ('블랙', 5000, 3, 2);  -- 한샘 침대 - 블랙 컬러
+
+-- 시몬스 침대 게시물에 대한 추가 사진 (detail)
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/simmons_king_main.jpg', 'main', 1);
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/simmons_king_thumb.jpg', 'thumbnail', 1);
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/simmons_king_detail1.jpg', 'detail', 1);
+
+-- 에이스 침대 게시물에 대한 추가 사진 (detail)
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/ace_single_main.jpg', 'main', 2);
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/ace_single_thumb.jpg', 'thumbnail', 2);
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/ace_single_detail1.jpg', 'detail', 2);
+
+-- 한샘 침대 게시물에 대한 추가 사진 (detail)
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/hanssem_king_main.jpg', 'main', 3);
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/hanssem_king_thumb.jpg', 'thumbnail', 3);
+INSERT INTO photo_tb (url, type, post_id)
+VALUES ('https://example.com/hanssem_king_detail1.jpg', 'detail', 3);
+
