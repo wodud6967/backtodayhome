@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.todayhome.maincategory.MainCategory;
-import shop.mtcoding.todayhome.option.Option;
+import shop.mtcoding.todayhome.post.Post;
 
 import java.util.List;
 
@@ -28,12 +28,13 @@ public class SubCategory {
     private MainCategory mainCategory;
 
     @OneToMany(mappedBy ="subCategory", fetch = FetchType.LAZY)
-    private List<Option> products;
+    private List<Post> post;
 
     @Builder
-    public SubCategory(int id, String name, MainCategory mainCategory) {
+    public SubCategory(int id, String name, MainCategory mainCategory, List<Post> post) {
         this.id = id;
         this.name = name;
         this.mainCategory = mainCategory;
+        this.post = post;
     }
 }
