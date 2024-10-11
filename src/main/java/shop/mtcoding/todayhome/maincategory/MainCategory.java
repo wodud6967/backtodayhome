@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.todayhome.subcategory.SubCategory;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,9 +23,14 @@ public class MainCategory {
 
     private String name;
 
+    @OneToMany(mappedBy = "mainCategory", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<SubCategory> subCategory;
+
+
     @Builder
-    public MainCategory(int id, String name) {
+    public MainCategory(int id, String name, List<SubCategory> subCategory) {
         this.id = id;
         this.name = name;
+        this.subCategory = subCategory;
     }
 }

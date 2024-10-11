@@ -17,6 +17,36 @@ VALUES ('패브릭');
 INSERT INTO maincategory_tb (name)
 VALUES ('가전·디지털');
 
+INSERT INTO maincategory_tb (name)
+VALUES ('식품');
+
+INSERT INTO maincategory_tb (name)
+VALUES ('데코·식물');
+
+INSERT INTO maincategory_tb (name)
+VALUES ('조명');
+
+INSERT INTO maincategory_tb (name)
+VALUES ('수납·정리');
+INSERT INTO maincategory_tb (name)
+VALUES ('생활용품');
+INSERT INTO maincategory_tb (name)
+VALUES ('생필품');
+INSERT INTO maincategory_tb (name)
+VALUES ('유아·아동');
+INSERT INTO maincategory_tb (name)
+VALUES ('반려동물');
+INSERT INTO maincategory_tb (name)
+VALUES ('캠핑·레저');
+INSERT INTO maincategory_tb (name)
+VALUES ('공구·DIY');
+INSERT INTO maincategory_tb (name)
+VALUES ('인테리어시공');
+INSERT INTO maincategory_tb (name)
+VALUES ('렌탈·구독');
+
+
+
 -- 침대 카테고리의 서브 카테고리 (싱글, 퀸, 킹)
 INSERT INTO subcategory_tb (name, main_category_id)
 VALUES ('침대', 1);
@@ -356,3 +386,75 @@ INSERT INTO photo_tb (url, type, post_id)
 VALUES ('https://example.com/percis_detail1.jpg', 'detail', 6); -- 상세 사진 1
 INSERT INTO photo_tb (url, type, post_id)
 VALUES ('https://example.com/percis_detail2.jpg', 'detail', 6); -- 상세 사진 2
+
+
+
+-- user_id = 1 ~ 3의 사용자가 다양한 주문을 한 경우
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_004');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (2, 'merchant_005');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (3, 'merchant_006');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_007');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (2, 'merchant_008');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (3, 'merchant_009');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_010');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (2, 'merchant_011');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (3, 'merchant_012');
+INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_013');
+
+
+-- 결제 내역에 대한 더미 데이터 (각 주문별 결제 내역)
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (4, 'imp_004');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (5, 'imp_005');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (6, 'imp_006');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (7, 'imp_007');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (8, 'imp_008');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (9, 'imp_009');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (10, 'imp_010');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (11, 'imp_011');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (12, 'imp_012');
+INSERT INTO payment_tb (order_id, imp_uid) VALUES (13, 'imp_013');
+
+-- 주문 상세 내역 (각 주문에 대한 상품 수량과 가격 정보)
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (4, 1, 1, 450000, 450000);  -- 주문 4: 시몬스 침대 매트리스 싱글 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (5, 2, 2, 450000, 900000);  -- 주문 5: 에이스 침대 매트리스 퀸 2개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (6, 3, 3, 600000, 1800000);  -- 주문 6: 한샘 킹사이즈 침대 3개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (7, 4, 1, 300000, 300000);  -- 주문 7: 시디즈 사무용 의자 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (8, 5, 1, 150000, 150000);  -- 주문 8: 듀오백 학생용 의자 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (9, 6, 2, 250000, 500000);  -- 주문 9: 퍼시스 사무용 의자 2개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (10, 1, 2, 450000, 900000);  -- 주문 10: 시몬스 침대 매트리스 싱글 2개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (11, 2, 1, 450000, 450000);  -- 주문 11: 에이스 침대 매트리스 퀸 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (12, 3, 1, 600000, 600000);  -- 주문 12: 한샘 킹사이즈 침대 1개
+INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
+VALUES (13, 4, 3, 300000, 900000);  -- 주문 13: 시디즈 사무용 의자 3개
+
+
+-- 장바구니에 상품이 추가된 더미 데이터
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (1, 1, 1, 450000, 450000);  -- user_id = 1이 시몬스 침대 매트리스 싱글 1개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (2, 2, 2, 450000, 900000);  -- user_id = 2가 에이스 침대 매트리스 퀸 2개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (3, 3, 3, 600000, 1800000);  -- user_id = 3이 한샘 킹사이즈 침대 3개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (1, 4, 1, 300000, 300000);  -- user_id = 1이 시디즈 사무용 의자 1개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (2, 5, 1, 150000, 150000);  -- user_id = 2가 듀오백 학생용 의자 1개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (3, 6, 2, 250000, 500000);  -- user_id = 3이 퍼시스 사무용 의자 2개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (1, 1, 2, 450000, 900000);  -- user_id = 1이 시몬스 침대 매트리스 싱글 2개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (2, 2, 1, 450000, 450000);  -- user_id = 2가 에이스 침대 매트리스 퀸 1개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (3, 3, 1, 600000, 600000);  -- user_id = 3이 한샘 킹사이즈 침대 1개를 장바구니에 추가
+INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
+VALUES (1, 4, 3, 300000, 900000);  -- user_id = 1이 시디즈 사무용 의자 3개를 장바구니에 추가
