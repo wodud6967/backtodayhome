@@ -21,6 +21,8 @@ public class Photo {
 
     private String url;
 
+    // 사진의 용도를 나타내는 필드 (예: 썸네일, 상세, 메인 등)
+    private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
