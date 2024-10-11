@@ -15,14 +15,6 @@ public class PostController {
     private final PostRepository postRepository;
 
 
-    @GetMapping("/api/categorys")
-    public ResponseEntity<?> category(HttpServletRequest request){
 
-
-
-
-
-        return ResponseEntity.ok().body(null);
-    }
 
 }
