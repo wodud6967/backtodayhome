@@ -25,6 +25,9 @@ public class Option {
 
     private int price;
 
+    // 새로운 우선순위 필드 추가
+    private Integer priority;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 

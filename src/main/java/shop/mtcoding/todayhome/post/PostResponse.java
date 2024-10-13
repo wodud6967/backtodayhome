@@ -2,6 +2,7 @@ package shop.mtcoding.todayhome.post;
 
 import jakarta.servlet.http.PushBuilder;
 import lombok.Data;
+import shop.mtcoding.todayhome.product.Product;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -9,12 +10,12 @@ import java.util.List;
 
 public class PostResponse {
     @Data
-    public static class ListDTO{
+    public static class ListDTO {
         private Integer selectedCategory;
         private String testString = "테스트중";
 
         private List<RecentPostsDTO> recentPostsDTOS = new ArrayList<>();
-        private List<PageTotalSoldDto> pageTotalSoldDtos =new ArrayList<>();
+        private List<PageTotalSoldDto> pageTotalSoldDtos = new ArrayList<>();
 
         public ListDTO(List<Post> recentPosts, List<Post> bestSellingPosts) {
             // 최근 올라온 게시물 리스트를 RecentPostsDTO로 변환
@@ -27,6 +28,7 @@ public class PostResponse {
                 this.pageTotalSoldDtos.add(new PageTotalSoldDto(post));
             }
         }
+
         //최근이 올라온 공고
         @Data
         public class RecentPostsDTO {
@@ -55,7 +57,7 @@ public class PostResponse {
             private String mainPhoto;
             private Timestamp createdAt;
 
-            public PageTotalSoldDto(Post post){
+            public PageTotalSoldDto(Post post) {
                 this.title = post.getTitle();
                 this.content = post.getContent();
                 this.price = post.getPrice();
@@ -66,31 +68,7 @@ public class PostResponse {
         }
 
     }
-    @Data
-    public static class postDTO{
-
-        private int id;
-        private String title;
-        private String content;
-        private int price;
-        private String mainPhoto;
-        private List<OptionGroupDTO> optionGroups;
-
-    }
-
-    @Data
-    public  static class OptionGroupDTO{
-        private String optionType;
-        private List<ProductDTO> products;
-    }
-
-    @Data
-    public  static class ProductDTO{
-        private int productId;
-        private String productName;
-        private int productPrice;
-    }
-
 
 
 }
+

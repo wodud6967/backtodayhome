@@ -15,7 +15,8 @@ public class JwtUtilTest {
 
     @Test
     public void verify_test() {
-        String accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZXhwIjoxNzI5NDA4ODU3LCJ1c2VybmFtZSI6InNzYXIifQ._tRqrCrKpSrQpaltMC1WCR8MRle5DcwAPuZj1BIsiYpRhTFsQZ2mfCTX9YAbfXO1ulKWEHnFMflTDH8AcDWRkg";
+        String accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6MSwiZXhwIjoxNzI5NDMwODg1LCJ1c2VybmFtZSI6InNzYXIifQ.2Ie8UUr8YtFOupdJW1kPUsaKZ3HC8tV6NGRwz7-GUUwr4o7lH-VhZrUhV9_XWXSMoI8d7kzbTmKODYITMSd69Q";
+
         User user = JwtUtil.verify(accessToken);
         System.out.println(user.getId());
         System.out.println(user.getUsername());

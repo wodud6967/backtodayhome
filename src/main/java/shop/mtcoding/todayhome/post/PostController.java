@@ -18,7 +18,7 @@ import shop.mtcoding.todayhome.user.User;
 public class PostController {
 
     private final PostService postService;
-    private HttpSession session;
+    private final HttpSession session;
 
 
 
@@ -28,6 +28,12 @@ public class PostController {
             @RequestParam(defaultValue = "1") int page,
             HttpServletRequest request
     ){
+        User user =  (User) session.getAttribute("sessionUser");
+
+
+        System.out.println("accesstoken :" +user.getId());
+
+
         PostResponse.ListDTO model = postService.공고리스트(categoryId,page);
 
         return ResponseEntity.ok()
@@ -41,11 +47,16 @@ public class PostController {
             @PathVariable("postId") Integer postId,
             HttpServletRequest request
     ){
-        User sessionUser =  (User)session.getAttribute("sessionUser");
-        Integer userId = sessionUser.getId();
-        System.out.println(userId);
-        postService.상세보기(postId,userId);
-        return ResponseEntity.ok().body(null);
+
+        User user =  (User) session.getAttribute("sessionUser");
+
+        System.out.println("accesstoken :" +user.getId());
+
+        PostDetailResponse.PostDTO  model = postService.상세보기(postId);
+
+        return ResponseEntity.ok()
+                .header("Authorization", "Bearer " + request.getHeader("Authorization")) // 토큰을 그대로 반환
+                .body(Resp.ok(model));
     }
 
 

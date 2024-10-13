@@ -19,7 +19,7 @@ public class OptionType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String type;
+    private String type;// 옵션의 유형 (예: 색상, 사이즈, 배터리 등)
 
     @Builder
     public OptionType(int id, String type) {
