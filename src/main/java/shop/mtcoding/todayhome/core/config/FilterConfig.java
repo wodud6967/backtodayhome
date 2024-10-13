@@ -12,7 +12,7 @@ public class FilterConfig {
     public FilterRegistrationBean<?> jwtAuthenticationFilter() {
 
         FilterRegistrationBean<JwtAuthorizationFilter> bean = new FilterRegistrationBean<>(new JwtAuthorizationFilter());
-        bean.addUrlPatterns("/api.*");
+        bean.addUrlPatterns("/api/*");
         bean.setOrder(0);
         return bean;
     }

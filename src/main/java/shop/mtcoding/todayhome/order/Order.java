@@ -32,10 +32,9 @@ public class Order {
     private String merchantUid;
 
     @Builder
-    public Order(int id, User user, List<OrderDetail> orderDetail, String merchantUid) {
+    public Order(int id, User user, String merchantUid) {
         this.id = id;
         this.user = user;
-        this.orderDetail = orderDetail;
         this.merchantUid = merchantUid;
     }
 }

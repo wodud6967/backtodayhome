@@ -12,6 +12,7 @@ import shop.mtcoding.todayhome.option.Option;
 import shop.mtcoding.todayhome.product.Product;
 import shop.mtcoding.todayhome.subcategory.SubCategory;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Getter
@@ -33,6 +34,8 @@ public class Post {
 
     private String mainPhoto;
 
+    private Timestamp createdAt;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private SubCategory subCategory;
 
@@ -46,15 +49,15 @@ public class Post {
     private List<Product> products;
 
     @Builder
-    public Post(int id, String title, String content, int price, String mainPhoto, SubCategory subCategory, Brand brand, List<Photo> photos, List<Product> products) {
+    public Post(int id, String title, String content, int price, String mainPhoto, Timestamp createdAt, SubCategory subCategory, Brand brand) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.price = price;
         this.mainPhoto = mainPhoto;
+        this.createdAt = createdAt;
         this.subCategory = subCategory;
         this.brand = brand;
-        this.photos = photos;
-        this.products = products;
+
     }
 }
