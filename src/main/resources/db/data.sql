@@ -541,89 +541,18 @@ VALUES (3, 3, 3, 600000, 1800000);  -- 상품 가격 600,000원, 수량 3개, �
 -- 주문 테이블 더미 데이터
 
 -- user_id = 1 사용자가 주문한 경우
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (1, 'merchant_001');
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity)
+VALUES (1, 'merchant_001', 1000000,2);
 
 -- user_id = 2 사용자가 주문한 경우
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (2, 'merchant_002');
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity)
+VALUES (2, 'merchant_002', 450000,1);
 
 -- user_id = 3 사용자가 주문한 경우
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (3, 'merchant_003');
-
--- user_id = 1 사용자가 다양한 상품을 구매한 경우
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (1, 'merchant_004');
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (1, 'merchant_005');
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (1, 'merchant_006');
-
--- user_id = 2 사용자가 다양한 상품을 구매한 경우
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (2, 'merchant_007');
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (2, 'merchant_008');
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (2, 'merchant_009');
-
--- user_id = 3 사용자가 다양한 상품을 구매한 경우
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (3, 'merchant_010');
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (3, 'merchant_011');
-INSERT INTO order_tb (user_id, merchant_uid)
-VALUES (3, 'merchant_012');
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity)
+VALUES (3, 'merchant_003', 1800000,3);
 
 -- 주문 상세 테이블 더미 데이터
--- 주문 상세 정보: user_id = 1의 주문에 대한 상품 구매 정보
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (4, 1, 2, 1200000, 2400000);  -- 시몬스 퀸사이즈 침대 2개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (4, 15, 1, 850000, 850000);   -- 한샘 더블사이즈 침대 1개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (5, 25, 3, 800000, 2400000);  -- 에이스 싱글사이즈 침대 3개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (6, 50, 1, 300000, 300000);   -- 듀오백 학생용 의자 1개
-
--- 주문 상세 정보: user_id = 2의 주문에 대한 상품 구매 정보
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (7, 5, 1, 600000, 600000);   -- 시몬스 프리미엄 킹사이즈 침대 1개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (7, 20, 2, 700000, 1400000); -- 시몬스 더블사이즈 침대 2개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (8, 35, 1, 1500000, 1500000); -- 한샘 킹사이즈 침대 1개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (9, 60, 2, 250000, 500000);   -- 퍼시스 사무용 의자 2개
-
--- 주문 상세 정보: user_id = 3의 주문에 대한 상품 구매 정보
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (10, 2, 1, 800000, 800000);  -- 에이스 싱글사이즈 침대 1개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (10, 40, 3, 1300000, 3900000); -- 시몬스 라텍스 퀸사이즈 침대 3개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (11, 55, 1, 450000, 450000);  -- 에이스 매트리스 퀸 1개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (12, 75, 2, 1000000, 2000000); -- 한샘 프리미엄 퀸사이즈 침대 2개
-
--- 추가로 user_id = 1의 주문에 대한 상품 정보
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (4, 5, 1, 600000, 600000);  -- 시몬스 프리미엄 킹사이즈 침대 1개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (5, 30, 2, 1200000, 2400000); -- 에이스 킹사이즈 침대 2개
-
--- 추가로 user_id = 2의 주문에 대한 상품 정보
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (8, 10, 2, 1500000, 3000000); -- 한샘 라텍스 킹사이즈 침대 2개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (9, 45, 1, 800000, 800000);  -- 시몬스 더블사이즈 침대 1개
-
--- 추가로 user_id = 3의 주문에 대한 상품 정보
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (11, 50, 1, 1200000, 1200000); -- 듀오백 학생용 의자 1개
-INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
-VALUES (12, 65, 2, 1500000, 3000000); -- 한샘 킹사이즈 침대 2개
 
 -- 주문 1 (order_id = 1)에서 시몬스 침대 (product_id = 1)를 2개 구매
 INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
@@ -640,37 +569,17 @@ VALUES (3, 3, 3, 600000, 1800000);  -- 상품 가격 600,000원, 수량 3개, �
 -- 결제 테이블 더미 데이터
 
 -- 주문 1 (order_id = 1)에 대한 결제 내역
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (1, 'imp_001');
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount)
+VALUES (1, 'imp_001', 'abcdefg', 1000000);
 
 -- 주문 2 (order_id = 2)에 대한 결제 내역
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (2, 'imp_002');
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount)
+VALUES (2, 'imp_002', 'abcdefg', 450000);
 
 
 -- 주문 3 (order_id = 3)에 대한 결제 내역
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (3, 'imp_003');
--- 주문 4 ~ 12의 결제 내역 추가
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (4, 'imp_004');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (5, 'imp_005');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (6, 'imp_006');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (7, 'imp_007');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (8, 'imp_008');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (9, 'imp_009');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (10, 'imp_010');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (11, 'imp_011');
-INSERT INTO payment_tb (order_id, imp_uid)
-VALUES (12, 'imp_012');
-
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount)
+VALUES (3, 'imp_003', 'abcdefg', 1800000);
 
 
 -- 시몬스 침대 게시물의 사진 (post_id = 1)
@@ -736,29 +645,29 @@ VALUES ('https://example.com/percis_detail2.jpg', 'detail', 6); -- 상세 사진
 
 
 -- user_id = 1 ~ 3의 사용자가 다양한 주문을 한 경우
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_004');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (2, 'merchant_005');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (3, 'merchant_006');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_007');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (2, 'merchant_008');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (3, 'merchant_009');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_010');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (2, 'merchant_011');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (3, 'merchant_012');
-INSERT INTO order_tb (user_id, merchant_uid) VALUES (1, 'merchant_013');
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (1, 'merchant_004', 450000, 1);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (2, 'merchant_005', 900000, 2);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (3, 'merchant_006', 1800000, 3);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (1, 'merchant_007', 300000, 1);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (2, 'merchant_008', 150000, 1);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (3, 'merchant_009', 500000, 2);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (1, 'merchant_010', 900000, 2);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (2, 'merchant_011', 450000, 1);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (3, 'merchant_012', 600000, 1);
+INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity) VALUES (1, 'merchant_013', 900000, 3);
 
 
 -- 결제 내역에 대한 더미 데이터 (각 주문별 결제 내역)
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (4, 'imp_004');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (5, 'imp_005');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (6, 'imp_006');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (7, 'imp_007');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (8, 'imp_008');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (9, 'imp_009');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (10, 'imp_010');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (11, 'imp_011');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (12, 'imp_012');
-INSERT INTO payment_tb (order_id, imp_uid) VALUES (13, 'imp_013');
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (4, 'imp_004', 'abcdefg', 450000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (5, 'imp_005', 'abcdefg', 900000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (6, 'imp_006', 'abcdefg', 1800000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (7, 'imp_007', 'abcdefg', 300000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (8, 'imp_008', 'abcdefg', 150000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (9, 'imp_009', 'abcdefg', 500000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (10, 'imp_010', 'abcdefg', 900000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (11, 'imp_011', 'abcdefg', 450000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (12, 'imp_012', 'abcdefg', 600000);
+INSERT INTO payment_tb (order_id, tid, pg_token, total_amount) VALUES (13, 'imp_013', 'abcdefg', 900000);
 
 -- 주문 상세 내역 (각 주문에 대한 상품 수량과 가격 정보)
 INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
@@ -804,6 +713,9 @@ INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
 VALUES (3, 3, 1, 600000, 600000);  -- user_id = 3이 한샘 킹사이즈 침대 1개를 장바구니에 추가
 INSERT INTO cart_tb (user_id, product_id, count, price, total_price)
 VALUES (1, 4, 3, 300000, 900000);  -- user_id = 1이 시디즈 사무용 의자 3개를 장바구니에 추가
+
+INSERT INTO ready_tb (cid, tax_free_amount, approval_url, cancel_url, fail_url)
+VALUES ('TC0ONETIME',0,'http://125.134.184.240:8080/pay/success','http://125.134.184.240:8080/pay/cancel','http://125.134.184.240:8080/pay/fail');
 
 -- 주문 4 (order_id = 4)에서 시몬스 침대 매트리스 퀸을 3개 구매
 INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
