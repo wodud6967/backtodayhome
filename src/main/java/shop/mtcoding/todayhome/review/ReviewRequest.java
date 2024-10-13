@@ -26,7 +26,10 @@ public class ReviewRequest {
         }
     }
 
-
-
-
+    @Data
+    public static class UpdateDTO {
+        private Double star;
+        private String content;
+        private String url;
+    }
 }
