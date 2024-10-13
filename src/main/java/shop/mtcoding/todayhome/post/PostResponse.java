@@ -1,5 +1,6 @@
 package shop.mtcoding.todayhome.post;
 
+import jakarta.servlet.http.PushBuilder;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -10,6 +11,7 @@ public class PostResponse {
     @Data
     public static class ListDTO{
         private Integer selectedCategory;
+        private String testString = "테스트중";
 
         private List<RecentPostsDTO> recentPostsDTOS = new ArrayList<>();
         private List<PageTotalSoldDto> pageTotalSoldDtos =new ArrayList<>();
@@ -62,6 +64,21 @@ public class PostResponse {
 
             }
         }
+
+    }
+    @Data
+    public static class postDTO{
+
+        private int id;
+        private String title;
+        private String content;
+        private int price;
+        private String mainPhoto;
+
+    }
+
+    @Data
+    public  static class optionDTO{
 
     }
 

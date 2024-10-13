@@ -25,4 +25,9 @@ public class PostService {
         System.out.println("Best Selling Posts Size: " + bestSellingPosts.size());
         return new PostResponse.ListDTO(recentPosts, bestSellingPosts);
     }
+
+    public void 상세보기(Integer postId, Integer userId) {
+
+
+    }
 }

@@ -33,7 +33,10 @@ public class JwtAuthorizationFilter implements Filter {
 
         }
         try {
+
             User sessionUser = JwtUtil.verify(accessToken);
+
+
             HttpSession session = req.getSession();
             session.setAttribute("sessionUser", sessionUser);
             chain.doFilter(req, resp);
