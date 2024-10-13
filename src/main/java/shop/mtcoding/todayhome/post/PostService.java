@@ -27,7 +27,7 @@ public class PostService {
     }
 
     public void 상세보기(Integer postId, Integer userId) {
-
+            
 
     }
 }

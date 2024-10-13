@@ -74,12 +74,21 @@ public class PostResponse {
         private String content;
         private int price;
         private String mainPhoto;
+        private List<OptionGroupDTO> optionGroups;
 
     }
 
     @Data
-    public  static class optionDTO{
+    public  static class OptionGroupDTO{
+        private String optionType;
+        private List<ProductDTO> products;
+    }
 
+    @Data
+    public  static class ProductDTO{
+        private int productId;
+        private String productName;
+        private int productPrice;
     }
 
 

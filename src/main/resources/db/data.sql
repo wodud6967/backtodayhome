@@ -743,42 +743,7 @@ INSERT INTO orderdetail_tb (order_id, product_id, count, price, total_price)
 VALUES (10, 1, 2, 450000, 900000);
 
 
--- 시몬스 침대 관련 옵션 추가 (사이즈 및 컬러)
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('싱글', 5000, 1, 1);  -- 시몬스 침대 - 싱글 사이즈
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('퀸', 10000, 1, 1);  -- 시몬스 침대 - 퀸 사이즈
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('킹', 15000, 1, 1);  -- 시몬스 침대 - 킹 사이즈
 
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('화이트', 0, 1, 2);  -- 시몬스 침대 - 화이트 컬러
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('블랙', 5000, 1, 2);  -- 시몬스 침대 - 블랙 컬러
-
--- 에이스 침대 관련 옵션 추가 (사이즈 및 컬러)
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('싱글', 5000, 2, 1);  -- 에이스 침대 - 싱글 사이즈
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('퀸', 10000, 2, 1);  -- 에이스 침대 - 퀸 사이즈
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('킹', 15000, 2, 1);  -- 에이스 침대 - 킹 사이즈
-
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('화이트', 0, 2, 2);  -- 에이스 침대 - 화이트 컬러
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('블랙', 5000, 2, 2);  -- 에이스 침대 - 블랙 컬러
-
--- 한샘 침대 관련 옵션 추가 (사이즈 및 컬러)
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('킹', 20000, 3, 1);  -- 한샘 침대 - 킹 사이즈
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('더블', 10000, 3, 1);  -- 한샘 침대 - 더블 사이즈
-
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('화이트', 0, 3, 2);  -- 한샘 침대 - 화이트 컬러
-INSERT INTO option_tb (content, price, product_id, option_type_id)
-VALUES ('블랙', 5000, 3, 2);  -- 한샘 침대 - 블랙 컬러
 
 -- 시몬스 침대 게시물에 대한 추가 사진 (detail)
 INSERT INTO photo_tb (url, type, post_id)
