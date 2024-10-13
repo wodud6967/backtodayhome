@@ -25,7 +25,7 @@ public class MainCategoryController {
     public ResponseEntity<?> category(HttpServletRequest request){
         User sessionUser = (User)session.getAttribute("sessionUser");
 
-        System.out.println("accesstoken :" +sessionUser.getId());
+       // System.out.println("accesstoken :" +sessionUser.getId());
 
         List<MainCategoryResponse.MainCategoryDTO> model = mainCategoryService.카테고리목록();
 
