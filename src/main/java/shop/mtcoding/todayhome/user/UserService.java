@@ -19,7 +19,7 @@ public class UserService {
 
 
     public String 로그인(UserRequest.LoginDTO loginDTO) {
-        User userPS = userRepository.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPasswrod())
+        User userPS = userRepository.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword())
                 .orElseThrow(() -> new ExceptionApi401("아이뒤또는 이메일이 틀렸습니다."));
 
         String accessToken = JwtUtil.create(userPS);

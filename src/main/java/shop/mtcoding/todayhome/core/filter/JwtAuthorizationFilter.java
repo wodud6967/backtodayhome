@@ -41,7 +41,8 @@ public class JwtAuthorizationFilter implements Filter {
             session.setAttribute("sessionUser", sessionUser);
             chain.doFilter(req, resp);
         }catch (Exception e){
-            resp.setHeader("Content-Type","application/json; charset=utf-8");
+//            resp.setHeader("Content-Type","application/json; charset=utf-8");
+            resp.setContentType("application/json; charset=utf-8");
             PrintWriter out = resp.getWriter();
             Resp fail = Resp.fail(401, e.getMessage());
             String responseBody = new ObjectMapper().writeValueAsString(fail);

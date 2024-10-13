@@ -14,6 +14,6 @@ public class UserRequest {
         private String username;
 
         @NotEmpty
-        private String passwrod;
+        private String password;
     }
 }
