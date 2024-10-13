@@ -34,19 +34,33 @@ public class ReviewService {
     @Transactional
     public ReviewResponse.DTO 리뷰수정(int id, ReviewRequest.UpdateDTO updateDTO, User sessionUser) {
         // 1. 리뷰 조회 (없으면 404)
-        Review review = reviewRepository.findById(id)
+        Review reviewPS = reviewRepository.findById(id)
                 .orElseThrow(() -> new ExceptionApi404("작성한 리뷰를 찾을 수 없습니다."));
 
         // 2. 권한 체크
-        if (review.getUser().getId() != sessionUser.getId()) {
+        if (reviewPS.getUser().getId() != sessionUser.getId()) {
             throw new ExceptionApi403("리뷰를 수정할 권한이 없습니다.");
         }
 
         // 3. 리뷰 수정 (더티체킹, DB에 수정 반영)
-        review.setStar(updateDTO.getStar());
-        review.setContent(updateDTO.getContent());
-        review.setUrl(updateDTO.getUrl());
+        reviewPS.setStar(updateDTO.getStar());
+        reviewPS.setContent(updateDTO.getContent());
+        reviewPS.setUrl(updateDTO.getUrl());
 
-        return new ReviewResponse.DTO(review);
+        return new ReviewResponse.DTO(reviewPS);
+    }
+
+    @Transactional
+    public void 리뷰삭제(int id, User sessionUser) {
+        // 1. 리뷰 조회 (없으면 404)
+        Review reviewPS = reviewRepository.findById(id)
+                .orElseThrow(() -> new ExceptionApi404("삭제할 리뷰를 찾을 수 없습니다."));
+
+        // 2. 권한 체크
+        if (reviewPS.getUser().getId() != sessionUser.getId()) {
+            throw new ExceptionApi403("리뷰 삭제 권한이 없습니다.");
+        }
+
+        reviewRepository.deleteById(id);
     }
 }
