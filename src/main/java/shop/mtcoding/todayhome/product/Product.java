@@ -36,11 +36,11 @@ public class Product {
 
 
     @Builder
-    public Product(int id, String name, int price, Post post, List<Option> option) {
+    public Product(int id, String name, int price, Post post) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.post = post;
-        this.option = option;
+
     }
 }

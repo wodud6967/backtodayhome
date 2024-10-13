@@ -28,9 +28,9 @@ public class MainCategory {
 
 
     @Builder
-    public MainCategory(int id, String name, List<SubCategory> subCategory) {
+    public MainCategory(int id, String name) {
         this.id = id;
         this.name = name;
-        this.subCategory = subCategory;
+
     }
 }

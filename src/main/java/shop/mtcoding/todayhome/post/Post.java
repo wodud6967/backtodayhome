@@ -49,7 +49,7 @@ public class Post {
     private List<Product> products;
 
     @Builder
-    public Post(int id, String title, String content, int price, String mainPhoto, Timestamp createdAt, SubCategory subCategory, Brand brand, List<Photo> photos, List<Product> products) {
+    public Post(int id, String title, String content, int price, String mainPhoto, Timestamp createdAt, SubCategory subCategory, Brand brand) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -58,7 +58,6 @@ public class Post {
         this.createdAt = createdAt;
         this.subCategory = subCategory;
         this.brand = brand;
-        this.photos = photos;
-        this.products = products;
+
     }
 }

@@ -31,10 +31,10 @@ public class SubCategory {
     private List<Post> post;
 
     @Builder
-    public SubCategory(int id, String name, MainCategory mainCategory, List<Post> post) {
+    public SubCategory(int id, String name, MainCategory mainCategory) {
         this.id = id;
         this.name = name;
         this.mainCategory = mainCategory;
-        this.post = post;
+
     }
 }
