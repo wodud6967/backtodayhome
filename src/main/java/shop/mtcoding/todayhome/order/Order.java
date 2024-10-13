@@ -29,12 +29,17 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetail;
 
-    private String merchantUid;
+    private String partnerOrderId;
+    private int totalAmount;
+    private int quantity;
 
     @Builder
-    public Order(int id, User user, String merchantUid) {
+    public Order(int id, User user, List<OrderDetail> orderDetail, String merchantUid) {
         this.id = id;
         this.user = user;
-        this.merchantUid = merchantUid;
+        this.orderDetail = orderDetail;
+        this.partnerOrderId = partnerOrderId;
+        this.totalAmount = totalAmount;
+        this.quantity = quantity;
     }
 }

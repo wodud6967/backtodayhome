@@ -22,16 +22,15 @@ public class Payment {
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
 
-    private String impUid;  //결제 내역 번호
-
-
-
+    private String tid;  //결제 내역 번호
+    private String pgToken;
+    private int totalAmount;
 
     @Builder
-    public Payment(int id, Order order, String impUid) {
-        this.id = id;
+    public Payment(Order order, String tid, String pgToken, int totalAmount) {
         this.order = order;
-        this.impUid = impUid;
-
+        this.tid = tid;
+        this.pgToken = pgToken;
+        this.totalAmount = totalAmount;
     }
 }

@@ -6,8 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import shop.mtcoding.todayhome.order.Order;
+import shop.mtcoding.todayhome.photo.Photo;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Getter
 @Setter
