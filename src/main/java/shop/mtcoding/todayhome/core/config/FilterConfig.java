@@ -9,7 +9,7 @@ import shop.mtcoding.todayhome.core.filter.JwtAuthorizationFilter;
 public class FilterConfig {
 
     @Bean
-    public FilterRegistrationBean<?> jwtAuthenticationFilter() {
+    public FilterRegistrationBean<?> JwtAuthorizationFilter() {
 
         FilterRegistrationBean<JwtAuthorizationFilter> bean = new FilterRegistrationBean<>(new JwtAuthorizationFilter());
         bean.addUrlPatterns("/api/*");

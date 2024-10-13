@@ -9,10 +9,12 @@ import lombok.Setter;
 import shop.mtcoding.todayhome.brand.Brand;
 import shop.mtcoding.todayhome.photo.Photo;
 import shop.mtcoding.todayhome.option.Option;
+import shop.mtcoding.todayhome.review.Review;
 import shop.mtcoding.todayhome.product.Product;
 import shop.mtcoding.todayhome.subcategory.SubCategory;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -43,10 +45,13 @@ public class Post {
     private Brand brand;
 
     @OneToMany(mappedBy ="post", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Photo> photos;
+    private List<Photo> photos = new ArrayList<>();
 
     @OneToMany(mappedBy = "post", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post")
+    private List<Review> reviews = new ArrayList<>(); // NullPointerException 방지 위해 초기화
 
     @Builder
     public Post(int id, String title, String content, int price, String mainPhoto, Timestamp createdAt, SubCategory subCategory, Brand brand) {
@@ -58,6 +63,5 @@ public class Post {
         this.createdAt = createdAt;
         this.subCategory = subCategory;
         this.brand = brand;
-
     }
 }

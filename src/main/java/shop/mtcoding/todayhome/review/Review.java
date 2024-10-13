@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import shop.mtcoding.todayhome.post.Post;
 import shop.mtcoding.todayhome.user.User;
 
@@ -28,17 +29,18 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    private  String content;
+    private String content; // 리뷰 내용
 
-    private  String url; // 사진
+    private String url; // 사진
 
-    private  double star;//별점
+    private Double star; // 별점
 
+    @CreationTimestamp // em.persist 할때 발동
     private Timestamp createdAt;
 
 
     @Builder
-    public Review(int id, Post post, User user, String content, String url, double star, Timestamp createdAt) {
+    public Review(int id, Post post, User user, String content, String url, Double star, Timestamp createdAt) {
         this.id = id;
         this.post = post;
         this.user = user;
