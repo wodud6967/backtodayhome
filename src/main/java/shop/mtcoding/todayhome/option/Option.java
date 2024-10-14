@@ -35,10 +35,11 @@ public class Option {
     private OptionType optionType;
 
     @Builder
-    public Option(int id, String content, int price, Product product, OptionType optionType) {
+    public Option(int id, String content, int price, Integer priority, Product product, OptionType optionType) {
         this.id = id;
         this.content = content;
         this.price = price;
+        this.priority = priority;
         this.product = product;
         this.optionType = optionType;
     }

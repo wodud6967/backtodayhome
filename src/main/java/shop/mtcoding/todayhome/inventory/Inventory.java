@@ -15,7 +15,7 @@ import shop.mtcoding.todayhome.product.Product;
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private int stock; // 재고 수량
 
