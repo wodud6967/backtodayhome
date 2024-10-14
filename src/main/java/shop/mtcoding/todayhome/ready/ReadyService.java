@@ -87,7 +87,7 @@ public class ReadyService {
 
         // 주문번호 id로 저장
 
-        return resUrl;
+        return webUrl;
 
     }
 

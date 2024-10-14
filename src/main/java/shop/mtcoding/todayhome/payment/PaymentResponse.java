@@ -1,10 +1,13 @@
 package shop.mtcoding.todayhome.payment;
 
+import lombok.Data;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
 public class PaymentResponse {
 
+    @Data
     public static class AmountDTO{
         private int total;
         private int tax_free;
@@ -17,6 +20,7 @@ public class PaymentResponse {
         }
     }
 
+    @Data
     public static class DTO {
         private String tid;
         private String partner_order_id;
