@@ -26,4 +26,11 @@ public class CartService {
 
     }
 
+    @Transactional
+    public void insertCart(int inventoryId, int count,int userId) {
+
+
+
+    }
+
 }

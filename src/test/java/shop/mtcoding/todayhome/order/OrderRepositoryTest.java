@@ -23,6 +23,12 @@ public class OrderRepositoryTest {
     @Autowired
     private ReadyRepository readyRepository;
 
+ /*   @Test
+    public void test(){
+        String pid = "merchant_001";
+        OrderResponse.DTO od = orderRepository.mfindOrderPage(pid);
+        System.out.println(od.toString());
+    }*/
 
 
 }

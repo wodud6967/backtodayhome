@@ -34,7 +34,7 @@ public class Order {
     private int quantity;
 
     @Builder
-    public Order(int id, User user, List<OrderDetail> orderDetail, String partnerOrderId) {
+    public Order(int id, User user, List<OrderDetail> orderDetail, String partnerOrderId, int totalAmount, int quantity) {
         this.id = id;
         this.user = user;
         this.orderDetail = orderDetail;
