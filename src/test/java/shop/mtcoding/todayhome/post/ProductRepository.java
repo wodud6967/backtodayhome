@@ -6,6 +6,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import shop.mtcoding.todayhome.product.Product;
+import shop.mtcoding.todayhome.review.Review;
 
 import java.util.List;
 
@@ -14,6 +16,21 @@ public class ProductRepository {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Test
+    public void findAllPostsOrderBySales_test(){
+        List<Post> posts = postRepository.findAllPostsOrderBySales();
+
+        for (Post post : posts) {
+            System.out.println("Post ID: " + post.getId());
+            System.out.println("Title: " + post.getTitle());
+            for (Review review : post.getReviews()) {
+                System.out.println("Review Content: " + review.getContent());
+                System.out.println("Review Star: " + review.getStar());
+            }
+        }
+    }
+
 
 
     @Test

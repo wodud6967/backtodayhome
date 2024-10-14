@@ -224,6 +224,99 @@ VALUES (2, 20); -- 화이트 프레임
 INSERT INTO inventory_tb (product_id, stock)
 VALUES (3, 15); -- 블랙 프레임
 
+
+
+
+-- 시몬스 침대 세트 등록 (기본 가격은 예시)
+INSERT INTO product_tb (name, price, post_id) VALUES ('시몬스 침대 세트', 450000, 1); -- ID 1
+INSERT INTO product_tb (name, price, post_id) VALUES ('시몬스 침대 프레임', 350000, 1); -- ID 2
+INSERT INTO product_tb (name, price, post_id) VALUES ('시몬스 침대 커버', 355000, 1); -- ID 3
+
+-- 에이스 침대 세트 등록
+INSERT INTO product_tb (name, price, post_id) VALUES ('에이스 침대 세트', 500000, 2); -- ID 4
+INSERT INTO product_tb (name, price, post_id) VALUES ('에이스 침대 프레임', 360000, 2); -- ID 5
+INSERT INTO product_tb (name, price, post_id) VALUES ('에이스 침대 커버', 365000, 2); -- ID 6
+
+-- 한샘 침대 세트 등록
+INSERT INTO product_tb (name, price, post_id) VALUES ('한샘 침대 세트', 550000, 3); -- ID 7
+INSERT INTO product_tb (name, price, post_id) VALUES ('한샘 침대 프레임', 370000, 3); -- ID 8
+INSERT INTO product_tb (name, price, post_id) VALUES ('한샘 침대 커버', 375000, 3); -- ID 9
+
+-- 사이즈 옵션 등록
+INSERT INTO option_tb (content, price, option_type_id) VALUES ('싱글', 0, 1); -- 사이즈: 싱글, ID 1
+INSERT INTO option_tb (content, price, option_type_id) VALUES ('퀸', 50000, 1); -- 사이즈: 퀸, ID 2
+INSERT INTO option_tb (content, price, option_type_id) VALUES ('킹', 150000, 1); -- 사이즈: 킹, ID 3
+
+-- 색상 옵션 등록
+INSERT INTO option_tb (content, price, option_type_id) VALUES ('화이트', 0, 2); -- 색상: 화이트, ID 4
+INSERT INTO option_tb (content, price, option_type_id) VALUES ('블랙', 5000, 2); -- 색상: 블랙, ID 5
+
+-- 시몬스 침대 세트에 옵션 등록 (ID 1)
+-- 사이즈 등록 (우선순위 1)
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (1, 1, 1); -- 싱글
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (1, 2, 1); -- 퀸
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (1, 3, 1); -- 킹
+
+-- 색상 등록 (우선순위 2)
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (1, 4, 2); -- 화이트
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (1, 5, 2); -- 블랙
+
+-- 에이스 침대 세트에 옵션 등록 (ID 4)
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (4, 1, 1); -- 싱글
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (4, 2, 1); -- 퀸
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (4, 3, 1); -- 킹
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (4, 4, 2); -- 화이트
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (4, 5, 2); -- 블랙
+
+-- 한샘 침대 세트에 옵션 등록 (ID 7)
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (7, 1, 1); -- 싱글
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (7, 2, 1); -- 퀸
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (7, 3, 1); -- 킹
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (7, 4, 2); -- 화이트
+INSERT INTO product_option_tb (product_id, option_id, priority) VALUES (7, 5, 2); -- 블랙
+
+-- 시몬스 침대 세트에 대한 재고 등록
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (1, 1, 4, 10); -- 싱글, 화이트 재고 10개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (1, 1, 5, 5);  -- 싱글, 블랙 재고 5개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (1, 2, 4, 8);  -- 퀸, 화이트 재고 8개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (1, 2, 5, 3);  -- 퀸, 블랙 재고 3개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (1, 3, 4, 6);  -- 킹, 화이트 재고 6개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (1, 3, 5, 4);  -- 킹, 블랙 재고 4개
+
+-- 에이스 침대 세트에 대한 재고 등록
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (4, 1, 4, 12); -- 싱글, 화이트 재고 12개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (4, 2, 5, 8);  -- 퀸, 블랙 재고 8개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (4, 3, 4, 5);  -- 킹, 화이트 재고 5개
+
+-- 한샘 침대 세트에 대한 재고 등록
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (7, 1, 4, 7);  -- 싱글, 화이트 재고 7개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (7, 2, 5, 9);  -- 퀸, 블랙 재고 9개
+INSERT INTO inventory_tb (product_id, option1_id, option2_id, stock)
+VALUES (7, 3, 4, 4);  -- 킹, 화이트 재고 4개
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- 시몬스 침대에 대한 리뷰 (post_id = 1, user_id = 1)
 INSERT INTO review_tb (post_id, user_id, content, img_url, star, created_at)
 VALUES (1, 1, '시몬스 침대를 구매했는데 정말 편안하고 좋습니다.', 'review1.jpg', 4.5, CURRENT_TIMESTAMP);
@@ -248,6 +341,7 @@ VALUES (3, 2, '킹사이즈 침대 정말 넉넉하고 좋아요!', 'review5.jpg
 
 
 
+
 -- user_id = 1 사용자가 inventory_id = 1 (시몬스 침대 싱글 화이트)을 장바구니에 추가
 INSERT INTO cart_tb (user_id, inventory_id, count, price, total_price)
 VALUES (1, 1, 2, 500000, 1000000);  -- 상품 가격 500,000원, 수량 2개, 총 가격 1,000,000원
@@ -261,6 +355,12 @@ INSERT INTO cart_tb (user_id, inventory_id, count, price, total_price)
 VALUES (3, 3, 3, 600000, 1800000);  -- 상품 가격 600,000원, 수량 3개, 총 가격 1,800,000원
 
 -- 주문 테이블 더미 데이터
+
+
+
+
+
+
 
 
 -- user_id = 1 사용자가 주문한 경우

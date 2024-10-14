@@ -11,17 +11,18 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Integer> {
 
+
     @Query("SELECT p " +
             "FROM Post p " +
-            "LEFT JOIN p.products pr " +
+            "LEFT JOIN Product pr ON p.id = pr.post.id " +
             "LEFT JOIN Inventory i ON pr.id = i.product.id " +
             "LEFT JOIN OrderDetail od ON i.id = od.inventory.id " +
-            "GROUP BY p " +
+            "GROUP BY p.id " +
             "ORDER BY COALESCE(SUM(od.count), 0) DESC")
     List<Post> findAllPostsOrderBySales();
 
-    @Query("SELECT p FROM Post p ORDER BY p.createdAt DESC")
-    List<Post> findAllPostsOrderByCreatedAtDesc();;
+    @Query("SELECT DISTINCT p FROM Post p LEFT JOIN FETCH p.reviews r ORDER BY p.createdAt DESC")
+    List<Post> findAllPostsOrderByCreatedAtDesc();
 
 
 

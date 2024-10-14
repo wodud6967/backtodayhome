@@ -28,15 +28,15 @@ public class PostService {
 
 
     public PostResponse.ListDTO 공고리스트(Integer categoryId, int page) {
-
         Pageable pageable = PageRequest.of(page - 1, 3);
+
+        // 페치 조인으로 리뷰 포함된 포스트들 가져오기
         List<Post> bestSellingPosts = postRepository.findAllPostsOrderBySales();
-
-
         List<Post> recentPosts = postRepository.findAllPostsOrderByCreatedAtDesc();
-        // 가져온 데이터를 출력해서 확인
+
         System.out.println("Recent Posts Size: " + recentPosts.size());
         System.out.println("Best Selling Posts Size: " + bestSellingPosts.size());
+
         return new PostResponse.ListDTO(recentPosts, bestSellingPosts);
     }
 
