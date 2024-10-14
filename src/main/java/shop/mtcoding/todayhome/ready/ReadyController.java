@@ -18,7 +18,7 @@ public class ReadyController {
     @GetMapping("/pay/ready/{id}")
     public ResponseEntity<?> payReady(@PathVariable("id") int id) {
         String resUrl = readyService.결제준비하기(id);
-        return ResponseEntity.ok(Resp.ok(resUrl));
+        return ResponseEntity.ok(Resp.ok(resUrl,"결제 준비 완료"));
     }
 
 }

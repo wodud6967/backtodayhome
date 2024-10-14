@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import shop.mtcoding.todayhome.core.error.ex.ExceptionApi404;
+import shop.mtcoding.todayhome.core.util.PaymentSession;
 import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.order.OrderRepository;
 
@@ -36,12 +38,14 @@ public class ReadyService {
         headers.add("Authorization", "DEV_SECRET_KEY " + secretKeyDev);
         headers.set("Content-Type", "application/json");
 
-        Optional<Order> order = orderRepository.findById(id);
-        String partnerOrderId = order.get().getPartnerOrderId();
-        String partnerUserId = order.get().getUser().getName();
-        String itemName = order.get().getOrderDetail().getFirst().getProduct().getName();
-        int quantity = order.get().getQuantity();
-        int totalAmount = order.get().getTotalAmount();
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ExceptionApi404("주문내역을 찾을 수 없습니다"));
+
+        String partnerOrderId = order.getPartnerOrderId();
+        String partnerUserId = order.getUser().getName();
+        String itemName = order.getOrderDetail().getFirst().getProduct().getName();
+        int quantity = order.getQuantity();
+        int totalAmount = order.getTotalAmount();
 
         // 2. 전송할 바디 설정
         Map<String, String> parameters = new HashMap<>();
@@ -52,7 +56,7 @@ public class ReadyService {
         parameters.put("quantity", String.valueOf(quantity));
         parameters.put("total_amount", String.valueOf(totalAmount));
         parameters.put("tax_free_amount", "0");
-        parameters.put("approval_url", "http://125.134.184.240:8080/pay/success");
+        parameters.put("approval_url", "http://125.134.184.240:8080/pay/approve");
         parameters.put("cancel_url", "http://125.134.184.240:8080/pay/cancel");
         parameters.put("fail_url", "http://125.134.184.240:8080/pay/fail");
 
@@ -64,7 +68,7 @@ public class ReadyService {
 
         ResponseEntity<ReadyResponse.DTO> response = template.postForEntity(url, entityMap, ReadyResponse.DTO.class);
 
-        // 4. 결제 테이블에 데이터 생성 후 TID 넣어놓기
+        // 4. 결제 테이블에 데이터 생성 후 TID 저장 및 세션에 저장
         Order od = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("주문이 존재하지 않습니다."));
         String tid = response.getBody().getTid();
@@ -72,9 +76,11 @@ public class ReadyService {
         Payment payment = new Payment(od, tid, pgToken, totalAmount);
         paymentRepository.save(payment);
 
+        PaymentSession.addAttribute("tid", tid);
 
         // 5. response에서 이동할 모바일 주소만 뽑아오기
         String resUrl = response.getBody().getNext_redirect_mobile_url();
+        String webUrl = response.getBody().getNext_redirect_pc_url();
 
         return resUrl;
 

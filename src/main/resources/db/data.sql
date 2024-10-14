@@ -570,7 +570,7 @@ VALUES (3, 3, 3, 600000, 1800000);  -- 상품 가격 600,000원, 수량 3개, �
 
 -- 주문 1 (order_id = 1)에 대한 결제 내역
 INSERT INTO payment_tb (order_id, tid, pg_token, total_amount)
-VALUES (1, 'imp_001', 'abcdefg', 1000000);
+VALUES (1, 'T70bcd41058063936fda', 'abcdefg', 1000000);
 
 -- 주문 2 (order_id = 2)에 대한 결제 내역
 INSERT INTO payment_tb (order_id, tid, pg_token, total_amount)

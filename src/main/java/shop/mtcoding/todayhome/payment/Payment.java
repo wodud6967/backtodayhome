@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.todayhome.order.Order;
 
+import java.security.Timestamp;
+
 @Getter
 @Setter
 @Table(name = "payment_tb")
