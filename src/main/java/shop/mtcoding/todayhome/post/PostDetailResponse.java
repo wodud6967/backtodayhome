@@ -71,7 +71,7 @@ public class PostDetailResponse {
         public ReviewDTO(Review review) {
             this.id = review.getId();
             this.content = review.getContent();
-            this.url = review.getUrl();
+            this.url = review.getImgUrl();
             this.star = review.getStar();
             this.userName = review.getUser().getUsername(); // Assuming User has a getUsername() method
             // 날짜 형식 변환
