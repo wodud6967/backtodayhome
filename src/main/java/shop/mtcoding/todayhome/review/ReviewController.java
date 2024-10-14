@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import shop.mtcoding.todayhome.core.util.Resp;
 import shop.mtcoding.todayhome.user.User;
 
@@ -14,6 +15,13 @@ public class ReviewController {
 
     private final ReviewService reviewService;
     private final HttpSession session;
+
+    @PostMapping("/api/review/img")
+    public ResponseEntity<?> saveImg(@RequestBody MultipartFile img) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+
+        return ResponseEntity.ok(Resp.ok(null));
+    }
 
     @PostMapping("/api/review")
     public ResponseEntity<?> save(@RequestBody ReviewRequest.SaveDTO saveDTO) {
