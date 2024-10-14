@@ -16,10 +16,10 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final HttpSession session;
 
-    @PostMapping("/api/review")
-    public ResponseEntity<?> save(@RequestBody ReviewRequest.SaveDTO saveDTO) {
+    @PostMapping("/api/review/{id}")
+    public ResponseEntity<?> save(@PathVariable("id") int id, @RequestBody ReviewRequest.SaveDTO saveDTO) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        ReviewResponse.DTO reviewDTO = reviewService.리뷰쓰기(saveDTO, sessionUser);
+        ReviewResponse.DTO reviewDTO = reviewService.리뷰쓰기(id, saveDTO, sessionUser);
         return ResponseEntity.ok(Resp.ok(reviewDTO));
     }
 

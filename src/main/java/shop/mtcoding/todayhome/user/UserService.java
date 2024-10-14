@@ -17,6 +17,9 @@ public class UserService {
 
     private final  UserRepository userRepository;
 
+    public void 나의리뷰조회(User sessionUser) {
+
+    }
 
     public String 로그인(UserRequest.LoginDTO loginDTO) {
         User userPS = userRepository.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword())

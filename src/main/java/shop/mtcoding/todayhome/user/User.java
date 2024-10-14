@@ -43,8 +43,8 @@ public class User{
 
     private String oauth;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews = new ArrayList<>();
 
 
     @Builder
