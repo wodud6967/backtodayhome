@@ -24,7 +24,7 @@ public class ReadyRequest {
             this.cid = ready.getCid();
             this.partnerOrderId = order.getPartnerOrderId();
             this.partnerUserId = order.getUser().getUsername();
-            this.itemName = order.getOrderDetail().getFirst().getProduct().getName();
+            this.itemName = order.getOrderDetail().getFirst().getInventory().getProduct().getName();
             this.quantity = order.getQuantity();
             this.totalAmount = order.getTotalAmount();
             this.taxFreeAmount = ready.getTaxFreeAmount();

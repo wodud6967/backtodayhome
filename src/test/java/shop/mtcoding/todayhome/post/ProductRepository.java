@@ -18,7 +18,7 @@ public class ProductRepository {
 
     @Test
     public void testBestSellingPosts() {
-        int page = 1;  // 첫 번째 페이지
+       /* int page = 1;  // 첫 번째 페이지
         Pageable pageable = PageRequest.of(page -1, 3);
         List<Post> posts = postRepository.findAllPostsOrderBySales(pageable);
 
@@ -26,16 +26,16 @@ public class ProductRepository {
         for (Post post : posts) {
             System.out.println(post.getTitle());
         }
-
+*/
 
     }
 
     @Test
     public void createdList(){
-        List<Post> posts = postRepository.findTop5ByOrderByCreatedAtDesc();
+      /*  List<Post> posts = postRepository.findTop5ByOrderByCreatedAtDesc();
 
         for (Post post : posts) {
             System.out.println(post.getTitle());
-        }
+        }*/
     }
 }

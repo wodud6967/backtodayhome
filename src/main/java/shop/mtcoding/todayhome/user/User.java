@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.photo.Photo;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
 @Table(name = "user_tb")
 @NoArgsConstructor
 @Entity
-public class User {
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -6,8 +6,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.option.Option;
 import shop.mtcoding.todayhome.product.Product;
+import shop.mtcoding.todayhome.productoption.ProductOption;
 import shop.mtcoding.todayhome.user.User;
 
 @Getter
@@ -25,7 +27,7 @@ public class Cart {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
+    private Inventory inventory; // 재고 테이블과 연결
 
 
     private int count;
@@ -35,10 +37,10 @@ public class Cart {
     private int totalPrice;
 
     @Builder
-    public Cart(int id, User user, Product product, int count, int price, int totalPrice) {
+    public Cart(int id, User user, Inventory inventory, int count, int price, int totalPrice) {
         this.id = id;
         this.user = user;
-        this.product = product;
+        this.inventory = inventory;
         this.count = count;
         this.price = price;
         this.totalPrice = totalPrice;

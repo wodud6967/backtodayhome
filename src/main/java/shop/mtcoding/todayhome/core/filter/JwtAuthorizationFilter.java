@@ -5,6 +5,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import jdk.swing.interop.SwingInterOpUtils;
 import shop.mtcoding.todayhome.core.util.JwtUtil;
 import shop.mtcoding.todayhome.core.util.Resp;
 import shop.mtcoding.todayhome.user.User;
@@ -33,12 +34,13 @@ public class JwtAuthorizationFilter implements Filter {
 
         }
         try {
-
             User sessionUser = JwtUtil.verify(accessToken);
-
-
+            System.out.println("id-- : " + sessionUser.getId());
+            System.out.println("username-- : " + sessionUser.getUsername());
             HttpSession session = req.getSession();
             session.setAttribute("sessionUser", sessionUser);
+
+
             chain.doFilter(req, resp);
         }catch (Exception e){
 //            resp.setHeader("Content-Type","application/json; charset=utf-8");

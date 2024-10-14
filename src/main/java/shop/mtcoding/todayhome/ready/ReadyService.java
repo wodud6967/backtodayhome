@@ -45,7 +45,7 @@ public class ReadyService {
 
         String partnerOrderId = order.getPartnerOrderId();
         String partnerUserId = order.getUser().getName();
-        String itemName = order.getOrderDetail().getFirst().getProduct().getName();
+        String itemName = order.getOrderDetail().getFirst().getInventory().getProduct().getName();
         int quantity = order.getQuantity();
         int totalAmount = order.getTotalAmount();
 

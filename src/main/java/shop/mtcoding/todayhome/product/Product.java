@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.mtcoding.todayhome.brand.Brand;
+import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.option.Option;
 import shop.mtcoding.todayhome.photo.Photo;
 import shop.mtcoding.todayhome.post.Post;
@@ -22,18 +23,19 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    private String name;
-
+    private String name ;
     private int price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Option>  option;
+    private List<Option> options;  // 상품의 옵션들
 
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Inventory> inventories;  // 상품의 재고
 
     @Builder
     public Product(int id, String name, int price, Post post) {
@@ -41,6 +43,5 @@ public class Product {
         this.name = name;
         this.price = price;
         this.post = post;
-
     }
 }
