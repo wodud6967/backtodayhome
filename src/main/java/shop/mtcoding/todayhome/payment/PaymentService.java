@@ -8,13 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import shop.mtcoding.todayhome.core.error.ex.ExceptionApi404;
-import shop.mtcoding.todayhome.core.util.PaymentSession;
-import shop.mtcoding.todayhome.ready.ReadyResponse;
+import shop.mtcoding.todayhome.core.util.TempCode;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 
 @RequiredArgsConstructor
@@ -25,10 +22,10 @@ public class PaymentService {
 
     // 결제 승인 요청
     @Transactional
-    public void payApprove(String pgToken) {
+    public void payApprove(String pgToken, String tempCode) {
 
-
-        String tid = PaymentSession.getStringAttributeValue("tid");
+        // 메모리에 저장해놓은 tid 찾아오기
+        String tid = TempCode.getTid(tempCode);
         Payment payment = paymentRepository.mFindByTid(tid)
                 .orElseThrow(() -> new ExceptionApi404("세션을 찾을 수 없습니다"));
 

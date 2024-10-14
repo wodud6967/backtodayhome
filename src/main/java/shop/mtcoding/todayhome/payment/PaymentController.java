@@ -1,5 +1,6 @@
 package shop.mtcoding.todayhome.payment;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +15,8 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @GetMapping("/pay/approve")
-    public ResponseEntity<?> payApprove(@RequestParam("pg_token") String pgToken) {
-        paymentService.payApprove(pgToken);
+    public ResponseEntity<?> payApprove(@RequestParam("pg_token") String pgToken, @RequestParam("tempCode") String tempCode) {
+        paymentService.payApprove(pgToken, tempCode);
         return ResponseEntity.ok(Resp.ok("결제 완료"));
     }
 

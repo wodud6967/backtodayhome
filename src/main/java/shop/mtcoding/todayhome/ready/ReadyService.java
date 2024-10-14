@@ -6,7 +6,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import shop.mtcoding.todayhome.core.error.ex.ExceptionApi404;
-import shop.mtcoding.todayhome.core.util.PaymentSession;
+import shop.mtcoding.todayhome.core.util.TempCode;
 import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.order.OrderRepository;
 
@@ -17,7 +17,7 @@ import shop.mtcoding.todayhome.payment.PaymentRepository;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
@@ -29,6 +29,8 @@ public class ReadyService {
 
     @Transactional
     public String 결제준비하기(int id){
+
+        UUID tempCode = UUID.randomUUID();
 
         // 시크릿 키
         String secretKeyDev = "DEVE0E51377133628B9BF75F0644B4A09DAF4552";
@@ -56,9 +58,9 @@ public class ReadyService {
         parameters.put("quantity", String.valueOf(quantity));
         parameters.put("total_amount", String.valueOf(totalAmount));
         parameters.put("tax_free_amount", "0");
-        parameters.put("approval_url", "http://125.134.184.240:8080/pay/approve");
-        parameters.put("cancel_url", "http://125.134.184.240:8080/pay/cancel");
-        parameters.put("fail_url", "http://125.134.184.240:8080/pay/fail");
+        parameters.put("approval_url", "http://192.168.0.102:8080/pay/approve?tempCode="+tempCode.toString());
+        parameters.put("cancel_url", "http://192.168.0.102:8080/pay/cancel");
+        parameters.put("fail_url", "http://192.168.0.102:8080/pay/fail");
 
         // 3. 데이터 전송
         HttpEntity<Map<String, String>> entityMap = new HttpEntity<>(parameters, headers);
@@ -72,15 +74,18 @@ public class ReadyService {
         Order od = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("주문이 존재하지 않습니다."));
         String tid = response.getBody().getTid();
+
+        TempCode.addTid(tempCode.toString(), tid);
+
         String pgToken = "";
         Payment payment = new Payment(od, tid, pgToken, totalAmount);
         paymentRepository.save(payment);
 
-        PaymentSession.addAttribute("tid", tid);
-
         // 5. response에서 이동할 모바일 주소만 뽑아오기
         String resUrl = response.getBody().getNext_redirect_mobile_url();
         String webUrl = response.getBody().getNext_redirect_pc_url();
+
+        // 주문번호 id로 저장
 
         return resUrl;
 
