@@ -16,13 +16,6 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final HttpSession session;
 
-    @PostMapping("/api/review/img")
-    public ResponseEntity<?> saveImg(@RequestBody MultipartFile img) {
-        User sessionUser = (User) session.getAttribute("sessionUser");
-
-        return ResponseEntity.ok(Resp.ok(null));
-    }
-
     @PostMapping("/api/review")
     public ResponseEntity<?> save(@RequestBody ReviewRequest.SaveDTO saveDTO) {
         User sessionUser = (User) session.getAttribute("sessionUser");
@@ -33,7 +26,7 @@ public class ReviewController {
     @PutMapping("/api/review/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ReviewRequest.UpdateDTO updateDTO) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        ReviewResponse.DTO reviewDTO = reviewService.리뷰수정(id, updateDTO, sessionUser);
+        ReviewResponse.UpdateDTO reviewDTO = reviewService.리뷰수정(id, updateDTO, sessionUser);
         return ResponseEntity.ok(Resp.ok(reviewDTO));
     }
 

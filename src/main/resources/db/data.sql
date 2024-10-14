@@ -225,21 +225,21 @@ INSERT INTO inventory_tb (product_id, stock)
 VALUES (3, 15); -- 블랙 프레임
 
 -- 시몬스 침대에 대한 리뷰 (post_id = 1, user_id = 1)
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
+INSERT INTO review_tb (post_id, user_id, content, img_url, star, created_at)
 VALUES (1, 1, '시몬스 침대를 구매했는데 정말 편안하고 좋습니다.', 'review1.jpg', 4.5, CURRENT_TIMESTAMP);
 
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
+INSERT INTO review_tb (post_id, user_id, content, img_url, star, created_at)
 VALUES (1, 2, '매트리스가 부드럽고 프레임도 튼튼해서 만족합니다.', 'review2.jpg', 5.0, CURRENT_TIMESTAMP);
 
 -- 에이스 침대에 대한 리뷰 (post_id = 2, user_id = 3)
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
+INSERT INTO review_tb (post_id, user_id, content, img_url, star, created_at)
 VALUES (2, 3, '에이스 침대는 가성비가 뛰어납니다.', 'review3.jpg', 4.0, CURRENT_TIMESTAMP);
 
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
+INSERT INTO review_tb (post_id, user_id, content, img_url, star, created_at)
 VALUES (2, 1, '프레임 디자인이 마음에 들고, 수면 품질이 좋아졌습니다.', 'review4.jpg', 4.8, CURRENT_TIMESTAMP);
 
 -- 한샘 침대에 대한 리뷰 (post_id = 3, user_id = 2)
-INSERT INTO review_tb (post_id, user_id, content, url, star, created_at)
+INSERT INTO review_tb (post_id, user_id, content, img_url, star, created_at)
 VALUES (3, 2, '킹사이즈 침대 정말 넉넉하고 좋아요!', 'review5.jpg', 5.0, CURRENT_TIMESTAMP);
 
 

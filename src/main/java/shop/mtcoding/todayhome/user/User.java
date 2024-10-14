@@ -8,9 +8,11 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.photo.Photo;
+import shop.mtcoding.todayhome.review.Review;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -40,6 +42,10 @@ public class User{
     private String address;
 
     private String oauth;
+
+//    @OneToMany(mappedBy = "user")
+//    private List<Review> reviews = new ArrayList<>();
+
 
     @Builder
     public User(int id, String username, String password, String name, int age, String email, String phone, String address, String oauth) {
