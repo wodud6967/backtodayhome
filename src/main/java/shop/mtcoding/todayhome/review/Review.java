@@ -31,7 +31,7 @@ public class Review {
 
     private String content; // 리뷰 내용
 
-    private String url; // 사진
+    private String imgUrl; // 리뷰 사진
 
     private Double star; // 별점
 
@@ -40,13 +40,14 @@ public class Review {
 
 
     @Builder
-    public Review(int id, Post post, User user, String content, String url, Double star, Timestamp createdAt) {
+    public Review(int id, Post post, User user, String content, String imgUrl, Double star, Timestamp createdAt) {
         this.id = id;
         this.post = post;
         this.user = user;
         this.content = content;
-        this.url = url;
+        this.imgUrl = imgUrl;
         this.star = star;
         this.createdAt = createdAt;
     }
+
 }

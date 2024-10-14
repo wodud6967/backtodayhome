@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import shop.mtcoding.todayhome.core.util.Resp;
 import shop.mtcoding.todayhome.user.User;
 
@@ -25,7 +26,7 @@ public class ReviewController {
     @PutMapping("/api/review/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ReviewRequest.UpdateDTO updateDTO) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        ReviewResponse.DTO reviewDTO = reviewService.리뷰수정(id, updateDTO, sessionUser);
+        ReviewResponse.UpdateDTO reviewDTO = reviewService.리뷰수정(id, updateDTO, sessionUser);
         return ResponseEntity.ok(Resp.ok(reviewDTO));
     }
 

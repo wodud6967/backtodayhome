@@ -22,7 +22,4 @@ public class Resp<T> {
         return new Resp<>(status, msg, null);
     }
 
-    public static <B> Resp<?> ok(String msg){
-        return new Resp<>(200, msg, null);
-    }
 }

@@ -96,7 +96,7 @@ public class PostResponse {
                 this.id = review.getId();
                 this.user = review.getUser();
                 this.content = review.getContent();
-                this.url = review.getUrl();
+                this.url = review.getImgUrl();
                 this.star = review.getStar();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 this.createdAt = review.getCreatedAt().toLocalDateTime().format(formatter);
