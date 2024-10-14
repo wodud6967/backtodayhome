@@ -14,7 +14,8 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     @Query("SELECT p " +
             "FROM Post p " +
             "LEFT JOIN p.products pr " +
-            "LEFT JOIN OrderDetail od ON pr.id = od.product.id " +
+            "LEFT JOIN Inventory i ON pr.id = i.product.id " +
+            "LEFT JOIN OrderDetail od ON i.id = od.inventory.id " +
             "GROUP BY p " +
             "ORDER BY COALESCE(SUM(od.count), 0) DESC")
     List<Post> findAllPostsOrderBySales();

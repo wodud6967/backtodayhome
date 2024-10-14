@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.product.Product;
 
@@ -26,7 +27,7 @@ public class OrderDetail {
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
+    private Inventory inventory;
 
     private int count;
     private int price;
@@ -35,10 +36,10 @@ public class OrderDetail {
 
 
     @Builder
-    public OrderDetail(int id, Order order, Product product, int price, int totalPrice, int count) {
+    public OrderDetail(int id, Order order, Inventory inventory, int price, int totalPrice, int count) {
         this.id = id;
         this.order = order;
-        this.product = product;
+        this.inventory  = inventory;
         this.price = price;
         this.totalPrice = totalPrice;
         this.count = count;

@@ -31,6 +31,8 @@ public class PostService {
 
         Pageable pageable = PageRequest.of(page - 1, 3);
         List<Post> bestSellingPosts = postRepository.findAllPostsOrderBySales();
+
+
         List<Post> recentPosts = postRepository.findAllPostsOrderByCreatedAtDesc();
         // 가져온 데이터를 출력해서 확인
         System.out.println("Recent Posts Size: " + recentPosts.size());

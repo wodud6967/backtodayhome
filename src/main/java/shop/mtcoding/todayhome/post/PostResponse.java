@@ -1,10 +1,15 @@
 package shop.mtcoding.todayhome.post;
 
+import jakarta.persistence.*;
 import jakarta.servlet.http.PushBuilder;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 import shop.mtcoding.todayhome.product.Product;
+import shop.mtcoding.todayhome.review.Review;
+import shop.mtcoding.todayhome.user.User;
 
 import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +42,8 @@ public class PostResponse {
             private int price;
             private String mainPhoto;
             private Timestamp createdAt;
+            private List<ReviewDto> reviews = new ArrayList<>();
+
 
             public RecentPostsDTO(Post post) {
                 this.title = post.getTitle();
@@ -44,6 +51,9 @@ public class PostResponse {
                 this.price = post.getPrice();
                 this.mainPhoto = post.getMainPhoto();
                 this.createdAt = post.getCreatedAt();
+                for (Review review : post.getReviews()) {
+                    this.reviews.add(new ReviewDto(review));
+                }
 
             }
 
@@ -56,6 +66,7 @@ public class PostResponse {
             private int price;
             private String mainPhoto;
             private Timestamp createdAt;
+            private List<ReviewDto> reviews = new ArrayList<>();
 
             public PageTotalSoldDto(Post post) {
                 this.title = post.getTitle();
@@ -63,6 +74,32 @@ public class PostResponse {
                 this.price = post.getPrice();
                 this.mainPhoto = post.getMainPhoto();
                 this.createdAt = post.getCreatedAt();
+                for (Review review : post.getReviews()) {
+                    this.reviews.add(new ReviewDto(review));
+                }
+            }
+
+            }
+        }
+
+        public static class ReviewDto{
+
+            private int id;
+            private User user;
+            private String content; // 리뷰 내용
+            private String url; // 사진
+            private Double star; // 별점
+            private String createdAt;
+
+
+            public ReviewDto(Review review) {
+                this.id = review.getId();
+                this.user = review.getUser();
+                this.content = review.getContent();
+                this.url = review.getUrl();
+                this.star = review.getStar();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                this.createdAt = review.getCreatedAt().toLocalDateTime().format(formatter);
 
             }
         }
@@ -70,5 +107,5 @@ public class PostResponse {
     }
 
 
-}
+
 
