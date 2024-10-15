@@ -34,10 +34,9 @@ public class Order {
     private int quantity;
 
     @Builder
-    public Order(int id, User user, List<OrderDetail> orderDetail, String partnerOrderId, int totalAmount, int quantity) {
+    public Order(int id, User user, String partnerOrderId, int totalAmount, int quantity) {
         this.id = id;
         this.user = user;
-        this.orderDetail = orderDetail;
         this.partnerOrderId = partnerOrderId;
         this.totalAmount = totalAmount;
         this.quantity = quantity;

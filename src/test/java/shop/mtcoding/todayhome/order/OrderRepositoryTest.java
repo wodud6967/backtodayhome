@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import shop.mtcoding.todayhome.ready.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -23,12 +24,12 @@ public class OrderRepositoryTest {
     @Autowired
     private ReadyRepository readyRepository;
 
- /*   @Test
+    @Test
     public void test(){
         String pid = "merchant_001";
-        OrderResponse.DTO od = orderRepository.mfindOrderPage(pid);
-        System.out.println(od.toString());
-    }*/
+        List<OrderResponse.OrderDetailDTO> orderDetailDTOList = orderRepository.mfindOrderdetailDTO(pid);
+        System.out.println(orderDetailDTOList);
+    }
 
 
 }
