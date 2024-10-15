@@ -1,6 +1,7 @@
 package shop.mtcoding.todayhome.order;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -17,6 +18,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query("select o from Order o left join fetch o.user where o.partnerOrderId =:partnerOrderId")
     OrderResponse.OrderDTO mfindOrderDTO(@Param("partnerOrderId") String partnerOrderId);
-
-
 }
+
+

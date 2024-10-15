@@ -19,9 +19,19 @@ public class PostController {
     private final HttpSession session;
 
 
-    @PostMapping("/api/post/save")
-    public ResponseEntity<?> save(@RequestBody PostRequest.SaveDTO postRequest) {
-        return  ResponseEntity.ok().body(null);
+    @PostMapping("/api/post")
+    public ResponseEntity<?> save(@RequestBody PostRequest.SaveDTO postRequest,HttpServletRequest request) {
+        User user =  (User) session.getAttribute("sessionUser");
+
+        System.out.println("전달된 subCategoryId: " + postRequest.getSubCategoryId());
+
+        System.out.println("컨트롤러로 왔나?");
+        PostSaveResponse.DTO model = postService.공고쓰기(postRequest, user);
+
+
+        return ResponseEntity.ok()
+                .header("Authorization", "Bearer " + request.getHeader("Authorization")) // 토큰을 그대로 반환
+                .body(Resp.ok(model));
 
     }
 
