@@ -1,11 +1,14 @@
-INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth)
-VALUES ('ssar', '1234', 'John', 25, 'ssar@nate.com', '01048086967', 'Seoul, South Korea', 'none');
+-- 'ssar' 사용자는 관리자
+INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role)
+VALUES ('ssar', '1234', 'John', 25, 'ssar@nate.com', '01048086967', 'Seoul, South Korea', 'none', 'ADMIN');
 
-INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth)
-VALUES ('cos', '1234', 'Chris', 30, 'cos@nate.com', '01048086967', 'Busan, South Korea', 'none');
+-- 'cos' 사용자는 관리자
+INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role)
+VALUES ('cos', '1234', 'Chris', 30, 'cos@nate.com', '01048086967', 'Busan, South Korea', 'none', 'ADMIN');
 
-INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth)
-VALUES ('love', '1234', 'Lily', 28, 'love@nate.com', '01048086967', 'Incheon, South Korea', 'none');
+-- 'love' 사용자는 일반 사용자
+INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role)
+VALUES ('love', '1234', 'Lily', 28, 'love@nate.com', '01048086967', 'Incheon, South Korea', 'none', 'USER');
 
 
 INSERT INTO maincategory_tb (name)
@@ -104,75 +107,36 @@ INSERT INTO brand_tb (brand_name)
 VALUES ('퍼시스');
 
 -- 침대 관련 게시물 추가 (브랜드명 변경)
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편안한침대 시몬스', '편안한 시몬스 침대는 최고의 편안함을 제공합니다.', 1200000, 'simmons_comfort.jpg', 1, 1, TIMESTAMPADD(HOUR, -1, CURRENT_TIMESTAMP));
+-- 게시물 더미 데이터 추가 (user_id 추가)
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('편안한침대 시몬스', '편안한 시몬스 침대는 최고의 편안함을 제공합니다.', 1200000, 'simmons_comfort.jpg', 1, 1, TIMESTAMPADD(HOUR, -1, CURRENT_TIMESTAMP), 1);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('최고의침대 에이스', '에이스 침대는 편안한 수면을 위한 최고의 선택입니다.', 800000, 'ace_best.jpg', 1, 2, TIMESTAMPADD(HOUR, -2, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('최고의침대 에이스', '에이스 침대는 편안한 수면을 위한 최고의 선택입니다.', 800000, 'ace_best.jpg', 1, 2, TIMESTAMPADD(HOUR, -2, CURRENT_TIMESTAMP), 2);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 넉넉한 공간을 제공합니다.', 1500000, 'hanssem_relax.jpg', 1, 3, TIMESTAMPADD(HOUR, -3, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 넉넉한 공간을 제공합니다.', 1500000, 'hanssem_relax.jpg', 1, 3, TIMESTAMPADD(HOUR, -3, CURRENT_TIMESTAMP), 3);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편안한침대 라텍스 시몬스', '시몬스의 라텍스 침대는 최고의 지지력을 제공합니다.', 1300000, 'simmons_latex_comfort.jpg', 1, 1, TIMESTAMPADD(HOUR, -4, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('편안한침대 템퍼', '템퍼의 편안한 침대는 편안한 수면을 보장합니다.', 1400000, 'tempur_comfort.jpg', 1, 4, TIMESTAMPADD(HOUR, -4, CURRENT_TIMESTAMP), 1);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('고급침대 에이스', '에이스 프리미엄 침대는 최상의 품질을 자랑합니다.', 1400000, 'ace_premium_best.jpg', 1, 2, TIMESTAMPADD(HOUR, -5, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('럭셔리침대 슬로우베드', '슬로우베드의 럭셔리 침대는 프리미엄 수면을 제공합니다.', 1700000, 'slowbed_luxury.jpg', 1, 5, TIMESTAMPADD(HOUR, -5, CURRENT_TIMESTAMP), 2);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('모던한침대 한샘', '한샘의 모던한 침대는 경제적인 선택입니다.', 850000, 'hanssem_modern.jpg', 1, 3, TIMESTAMPADD(HOUR, -6, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('편안한침대 시몬스', '시몬스의 최신형 편안한 침대는 지지력과 편안함을 제공합니다.', 1600000, 'simmons_latest.jpg', 1, 1, TIMESTAMPADD(HOUR, -6, CURRENT_TIMESTAMP), 3);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('럭셔리침대 시몬스', '시몬스 프리미엄 침대는 넉넉한 공간과 편안함을 제공합니다.', 1600000, 'simmons_luxury.jpg', 1, 1, TIMESTAMPADD(HOUR, -7, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('최고의침대 에이스', '에이스의 프리미엄 침대는 깊은 수면을 위한 최고의 제품입니다.', 1800000, 'ace_premium.jpg', 1, 2, TIMESTAMPADD(HOUR, -7, CURRENT_TIMESTAMP), 1);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편안한수면 에이스', '에이스 프리미엄 침대는 편안한 수면을 보장합니다.', 1200000, 'ace_sleep_comfort.jpg', 1, 2, TIMESTAMPADD(HOUR, -8, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 편안한 수면을 제공합니다.', 1300000, 'hanssem_relax2.jpg', 1, 3, TIMESTAMPADD(HOUR, -8, CURRENT_TIMESTAMP), 2);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('클래식침대 한샘', '한샘 클래식 침대는 최고의 편안함을 제공합니다.', 1700000, 'hanssem_classic.jpg', 1, 3, TIMESTAMPADD(HOUR, -9, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('편안한침대 템퍼', '템퍼의 프리미엄 침대는 지지력과 편안함을 극대화합니다.', 1500000, 'tempur_premium.jpg', 1, 4, TIMESTAMPADD(HOUR, -9, CURRENT_TIMESTAMP), 3);
 
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편리한침대 시몬스', '시몬스의 침대는 합리적인 가격에 넉넉한 공간을 제공합니다.', 1100000, 'simmons_convenient.jpg', 1, 1, TIMESTAMPADD(HOUR, -10, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('경제적인침대 에이스', '에이스 침대는 가성비가 뛰어납니다.', 700000, 'ace_economical.jpg', 1, 2, TIMESTAMPADD(HOUR, -11, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('프리미엄침대 한샘', '한샘 프리미엄 침대는 넓고 편안한 수면을 제공합니다.', 1400000, 'hanssem_premium.jpg', 1, 3, TIMESTAMPADD(HOUR, -12, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('지지력좋은침대 시몬스', '시몬스의 라텍스 침대는 최고의 지지력을 제공합니다.', 1200000, 'simmons_supportive.jpg', 1, 1, TIMESTAMPADD(HOUR, -13, CURRENT_TIMESTAMP));
-
--- 침대 관련 게시물 추가 (브랜드명 변경)
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편안한침대 시몬스', '편안한 시몬스 침대는 최고의 편안함을 제공합니다.', 1200000, 'simmons_comfort.jpg', 1, 1, TIMESTAMPADD(HOUR, -1, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('최고의침대 에이스', '에이스 침대는 편안한 수면을 위한 최고의 선택입니다.', 800000, 'ace_best.jpg', 1, 2, TIMESTAMPADD(HOUR, -2, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 넉넉한 공간을 제공합니다.', 1500000, 'hanssem_relax.jpg', 1, 3, TIMESTAMPADD(HOUR, -3, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편안한침대 템퍼', '템퍼의 편안한 침대는 편안한 수면을 보장합니다.', 1400000, 'tempur_comfort.jpg', 1, 4, TIMESTAMPADD(HOUR, -4, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('럭셔리침대 슬로우베드', '슬로우베드의 럭셔리 침대는 프리미엄 수면을 제공합니다.', 1700000, 'slowbed_luxury.jpg', 1, 5, TIMESTAMPADD(HOUR, -5, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편안한침대 시몬스', '시몬스의 최신형 편안한 침대는 지지력과 편안함을 제공합니다.', 1600000, 'simmons_latest.jpg', 1, 1, TIMESTAMPADD(HOUR, -6, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('최고의침대 에이스', '에이스의 프리미엄 침대는 깊은 수면을 위한 최고의 제품입니다.', 1800000, 'ace_premium.jpg', 1, 2, TIMESTAMPADD(HOUR, -7, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('안락한침대 한샘', '한샘의 안락한 침대는 편안한 수면을 제공합니다.', 1300000, 'hanssem_relax2.jpg', 1, 3, TIMESTAMPADD(HOUR, -8, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('편안한침대 템퍼', '템퍼의 프리미엄 침대는 지지력과 편안함을 극대화합니다.', 1500000, 'tempur_premium.jpg', 1, 4, TIMESTAMPADD(HOUR, -9, CURRENT_TIMESTAMP));
-
-INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at)
-VALUES ('럭셔리침대 슬로우베드', '슬로우베드의 최고급 침대는 고객의 만족을 보장합니다.', 1900000, 'slowbed_deluxe.jpg', 1, 5, TIMESTAMPADD(HOUR, -10, CURRENT_TIMESTAMP));
+INSERT INTO post_tb (title, content, price, main_photo, sub_category_id, brand_id, created_at, user_id)
+VALUES ('럭셔리침대 슬로우베드', '슬로우베드의 최고급 침대는 고객의 만족을 보장합니다.', 1900000, 'slowbed_deluxe.jpg', 1, 5, TIMESTAMPADD(HOUR, -10, CURRENT_TIMESTAMP), 1);
 
 -- 시몬스 침대 세트 등록 (기본 가격은 예시)
 INSERT INTO product_tb (name, price, post_id) VALUES ('시몬스 침대 세트', 450000, 1); -- ID 1

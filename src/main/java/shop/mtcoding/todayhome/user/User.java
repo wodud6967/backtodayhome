@@ -43,12 +43,22 @@ public class User{
 
     private String oauth;
 
+
     @OneToMany(mappedBy = "user")
     private List<Review> reviews = new ArrayList<>();
 
+   // 권한 필드 (기본적으로 사용자 / 관리자 구분)
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public enum Role {
+        USER,   // 일반 사용자
+        ADMIN   // 관리자
+    }
+
 
     @Builder
-    public User(int id, String username, String password, String name, int age, String email, String phone, String address, String oauth) {
+    public User(int id, String username, String password, String name, int age, String email, String phone, String address, String oauth, Role role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -58,5 +68,6 @@ public class User{
         this.phone = phone;
         this.address = address;
         this.oauth = oauth;
+        this.role = role;
     }
 }

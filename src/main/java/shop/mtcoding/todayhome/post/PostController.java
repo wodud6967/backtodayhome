@@ -6,9 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import shop.mtcoding.todayhome.core.util.Resp;
 import shop.mtcoding.todayhome.user.User;
 
@@ -21,6 +19,12 @@ public class PostController {
     private final HttpSession session;
 
 
+    @PostMapping("/api/post/save")
+    public ResponseEntity<?> save(@RequestBody PostRequest.SaveDTO postRequest) {
+        return  ResponseEntity.ok().body(null);
+
+    }
+
 
     @GetMapping("/api/category/{categoryId}/posts")
     public ResponseEntity<?> listPostsByCategory(
@@ -29,19 +33,17 @@ public class PostController {
             HttpServletRequest request
     ){
         User user =  (User) session.getAttribute("sessionUser");
-
-
         System.out.println("accesstoken :" +user.getId());
-
 
         PostResponse.ListDTO model = postService.공고리스트(categoryId,page);
 
         return ResponseEntity.ok()
                 .header("Authorization", "Bearer " + request.getHeader("Authorization")) // 토큰을 그대로 반환
                 .body(Resp.ok(model));
-
-
     }
+
+
+
     @GetMapping("/api/posts/{postId}")
     public ResponseEntity<?> postDetail(
             @PathVariable("postId") Integer postId,

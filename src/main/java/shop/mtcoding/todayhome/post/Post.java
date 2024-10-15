@@ -12,6 +12,7 @@ import shop.mtcoding.todayhome.option.Option;
 import shop.mtcoding.todayhome.review.Review;
 import shop.mtcoding.todayhome.product.Product;
 import shop.mtcoding.todayhome.subcategory.SubCategory;
+import shop.mtcoding.todayhome.user.User;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -39,6 +40,9 @@ public class Post {
     private Timestamp createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    private User user;  // 공고 작성자
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private SubCategory subCategory;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -54,13 +58,14 @@ public class Post {
     private List<Review> reviews = new ArrayList<>(); // NullPointerException 방지 위해 초기화
 
     @Builder
-    public Post(int id, String title, String content, int price, String mainPhoto, Timestamp createdAt, SubCategory subCategory, Brand brand) {
+    public Post(int id, String title, String content, int price, String mainPhoto, Timestamp createdAt, User user, SubCategory subCategory, Brand brand) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.price = price;
         this.mainPhoto = mainPhoto;
         this.createdAt = createdAt;
+        this.user = user;
         this.subCategory = subCategory;
         this.brand = brand;
     }
