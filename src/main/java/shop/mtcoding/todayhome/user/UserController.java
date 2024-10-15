@@ -16,11 +16,11 @@ public class UserController {
     private final UserService userService;
     private final HttpSession session;
 
-    @GetMapping("/api/user/myreview") // 작업중
+    @GetMapping("/api/user/myreview")
     public ResponseEntity<?> getUserReview() {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        userService.나의리뷰조회(sessionUser);
-        return ResponseEntity.ok(Resp.ok(null));
+        UserResponse.UserReviewDTO myReviewDTO = userService.나의리뷰조회(sessionUser);
+        return ResponseEntity.ok(Resp.ok(myReviewDTO));
     }
 
     @PostMapping("login")
