@@ -27,6 +27,7 @@ public class ReviewService {
         Post postPS = postRepository.findById(id)
                 .orElseThrow(() -> new ExceptionApi404("상품 페이지를 찾을 수 없습니다."));
 
+
         // 2. base64 -> file 저장
         String imgUrl = null;
         try {
@@ -35,6 +36,7 @@ public class ReviewService {
             e.printStackTrace();
             imgUrl = "/images/noImg.png";
         }
+
 
         // DB 에 저장할 때, 경로 없이 저장
         String fileNameOnly = imgUrl.substring("./images/".length()); // 앞의 "./images/" 부분 제거

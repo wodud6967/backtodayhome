@@ -11,6 +11,7 @@ import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.option.Option;
 import shop.mtcoding.todayhome.photo.Photo;
 import shop.mtcoding.todayhome.post.Post;
+import shop.mtcoding.todayhome.user.User;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class Product {
 
     private String name ;
     private int price;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
