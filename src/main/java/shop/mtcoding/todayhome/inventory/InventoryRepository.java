@@ -18,4 +18,5 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
     Inventory findByProductAndOptionIds(@Param("productId") Integer productId,
                                         @Param("option1Id") Integer option1Id,
                                         @Param("option2Id") Integer option2Id);
+
 }
