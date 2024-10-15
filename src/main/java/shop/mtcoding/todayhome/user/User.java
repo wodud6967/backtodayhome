@@ -47,7 +47,10 @@ public class User{
     @OneToMany(mappedBy = "user")
     private List<Review> reviews = new ArrayList<>();
 
-   // 권한 필드 (기본적으로 사용자 / 관리자 구분)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Order> orders = new ArrayList<>();
+
+    // 권한 필드 (기본적으로 사용자 / 관리자 구분)
     @Enumerated(EnumType.STRING)
     private Role role;
 

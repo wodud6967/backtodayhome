@@ -16,8 +16,15 @@ public class UserController {
     private final UserService userService;
     private final HttpSession session;
 
+    @GetMapping("/api/user/myorder") // 작업중
+    public ResponseEntity<?> getMyOrder() {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        UserResponse.UserOrderDTO myOrderDTO = userService.나의주문조회(sessionUser);
+        return ResponseEntity.ok(Resp.ok(myOrderDTO));
+    }
+
     @GetMapping("/api/user/myreview")
-    public ResponseEntity<?> getUserReview() {
+    public ResponseEntity<?> getMyReview() {
         User sessionUser = (User) session.getAttribute("sessionUser");
         UserResponse.UserReviewDTO myReviewDTO = userService.나의리뷰조회(sessionUser);
         return ResponseEntity.ok(Resp.ok(myReviewDTO));

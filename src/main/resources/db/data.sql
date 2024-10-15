@@ -239,7 +239,7 @@ VALUES (1, 'merchant_001', 1000000, 2);
 
 -- user_id = 2 사용자가 주문한 경우
 INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity)
-VALUES (2, 'merchant_002', 450000, 1);
+VALUES (1, 'merchant_002', 450000, 1);
 
 -- user_id = 3 사용자가 주문한 경우
 INSERT INTO order_tb (user_id, partner_order_id, total_amount, quantity)
@@ -250,6 +250,8 @@ VALUES (3, 'merchant_003', 1800000, 3);
 -- 주문 1 (order_id = 1)에서 시몬스 침대 (inventory_id = 1)를 2개 구매
 INSERT INTO orderdetail_tb (order_id, inventory_id, count, price, total_price)
 VALUES (1, 1, 2, 500000, 1000000);  -- 상품 가격 500,000원, 수량 2개, 총 가격 1,000,000원
+INSERT INTO orderdetail_tb (order_id, inventory_id, count, price, total_price)
+VALUES (1, 5, 1, 300000, 300000);
 
 -- 주문 2 (order_id = 2)에서 에이스 침대 (inventory_id = 2)를 1개 구매
 INSERT INTO orderdetail_tb (order_id, inventory_id, count, price, total_price)
@@ -258,6 +260,7 @@ VALUES (2, 2, 1, 450000, 450000);  -- 상품 가격 450,000원, 수량 1개, 총
 -- 주문 3 (order_id = 3)에서 한샘 침대 (inventory_id = 3)를 3개 구매
 INSERT INTO orderdetail_tb (order_id, inventory_id, count, price, total_price)
 VALUES (3, 3, 3, 600000, 1800000);  -- 상품 가격 600,000원, 수량 3개, 총 가격 1,800,000원
+
 
 -- 결제 테이블 더미 데이터
 
