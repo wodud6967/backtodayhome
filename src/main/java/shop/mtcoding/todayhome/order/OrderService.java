@@ -4,6 +4,7 @@ package shop.mtcoding.todayhome.order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import shop.mtcoding.todayhome.cart.CartRepository;
 import shop.mtcoding.todayhome.core.error.ex.ExceptionApi404;
 import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.inventory.InventoryRepository;
@@ -25,6 +26,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final InventoryRepository inventoryRepository;
     private final OrderDetailRepository orderDetailRepository;
+    private final CartRepository cartRepository;
 
     // 장바구니에서 주문서로 넘기기
     @Transactional
@@ -54,12 +56,19 @@ public class OrderService {
 
                 OrderDetail orderDetail1 = saveOrderDetailDTO.toEntity(order,inventory, orderDetail);
                 orderDetailRepository.save(orderDetail1);
+
+                // 장바구니 inventoryId 마다 삭제 시켜주기
+            int id = cartRepository.findCartByInventoryId(inventoryId);
+            cartRepository.deleteById(id);
+
         }
 
         // 3. 주문 내역에 들어간 내용들 담아서 뿌리기
-        OrderResponse.DTO orderPage = orderRepository.mfindOrderPage(partnerOrderId);
+        List<OrderResponse.OrderDetailDTO> orderDetailDTOList = orderRepository.mfindOrderdetailDTO(partnerOrderId);
+        OrderResponse.OrderDTO orderDTO = orderRepository.mfindOrderDTO(partnerOrderId);
 
-        return orderPage;
+
+        return new OrderResponse.DTO(orderDTO, orderDetailDTOList );
     }
 
 

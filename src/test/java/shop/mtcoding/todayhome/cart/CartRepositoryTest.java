@@ -27,5 +27,12 @@ public class CartRepositoryTest {
         System.out.println(cartList.toString());
     }
 
+    @Test
+    public void test2(){
+        cartRepository.deleteByInventoryId(1);
+        int e = (int) cartRepository.findAll().stream().count();
+        System.out.println(e);
+    }
+
 
 }

@@ -10,6 +10,17 @@ import java.util.List;
 public class OrderResponse {
 
     @Data
+    public static class DTO{
+        private OrderResponse.OrderDTO order;
+        private List<OrderResponse.OrderDetailDTO> orderDetails;
+
+        public DTO(OrderDTO order, List<OrderDetailDTO> orderDetails) {
+            this.order = order;
+            this.orderDetails = orderDetails;
+        }
+    }
+
+    @Data
     public static class OrderDetailDTO{
         private int inventoryId;
         private int count;
@@ -33,7 +44,7 @@ public class OrderResponse {
     }
 
     @Data
-    public static class DTO {
+    public static class OrderDTO {
         private int orderId;
         private String partnerOrderId;
         private int totalAmount;
@@ -41,17 +52,15 @@ public class OrderResponse {
         private String userName;
         private String phone;
         private String address;
-        private List<OrderDetailDTO> orderDetails;
 
-        public DTO(Order order, User user, List<OrderDetailDTO> orderDetails) {
+        public OrderDTO(Order order) {
             this.orderId = order.getId();
             this.partnerOrderId = order.getPartnerOrderId();
             this.totalAmount = order.getTotalAmount();
             this.quantity = order.getQuantity();
-            this.userName = user.getName();
-            this.phone = user.getPhone();
-            this.address = user.getAddress();
-            this.orderDetails = orderDetails;
+            this.userName = order.getUser().getName();
+            this.phone = order.getUser().getPhone();
+            this.address = order.getUser().getAddress();
         }
     }
 
