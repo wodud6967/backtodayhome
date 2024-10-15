@@ -25,6 +25,9 @@ public class UserResponse {
             private int price;
             private int totalPrice;
 
+            private String postTitle; // 공고 title
+            private String postMainPhoto; // 공고 사진
+
             public MyOrderDetailDTO(OrderDetail orderDetail) {
                 this.id = orderDetail.getId();
                 this.inventoryId = orderDetail.getInventory().getId();
