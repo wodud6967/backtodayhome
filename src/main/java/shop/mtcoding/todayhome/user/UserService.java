@@ -8,12 +8,6 @@ import shop.mtcoding.todayhome.core.error.ex.ExceptionApi404;
 import shop.mtcoding.todayhome.core.util.JwtUtil;
 import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.inventory.InventoryRepository;
-import shop.mtcoding.todayhome.order.Order;
-import shop.mtcoding.todayhome.orderdetail.OrderDetail;
-import shop.mtcoding.todayhome.review.Review;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Transactional(readOnly = true)
@@ -58,11 +52,11 @@ public class UserService {
         return new UserResponse.UserReviewDTO(userPS);
     }
 
-    public String 로그인(UserRequest.LoginDTO loginDTO) {
+    public UserResponse.LoginDTO 로그인(UserRequest.LoginDTO loginDTO) {
         User userPS = userRepository.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword())
                 .orElseThrow(() -> new ExceptionApi401("아이뒤또는 이메일이 틀렸습니다."));
 
         String accessToken = JwtUtil.create(userPS);
-        return accessToken;
+        return new UserResponse.LoginDTO(accessToken, userPS);
     }
 }

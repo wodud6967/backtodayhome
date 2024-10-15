@@ -20,8 +20,8 @@ public class PostController {
 
 
     @PostMapping("/api/post")
-    public ResponseEntity<?> save(@RequestBody PostRequest.SaveDTO postRequest,HttpServletRequest request) {
-        User user =  (User) session.getAttribute("sessionUser");
+    public ResponseEntity<?> save(@RequestBody PostRequest.SaveDTO postRequest, HttpServletRequest request) {
+        User user = (User) session.getAttribute("sessionUser");
 
         System.out.println("전달된 subCategoryId: " + postRequest.getSubCategoryId());
 
@@ -41,11 +41,11 @@ public class PostController {
             @PathVariable("categoryId") Integer categoryId,
             @RequestParam(defaultValue = "1") int page,
             HttpServletRequest request
-    ){
-        User user =  (User) session.getAttribute("sessionUser");
-        System.out.println("accesstoken :" +user.getId());
+    ) {
+        User user = (User) session.getAttribute("sessionUser");
+        System.out.println("accesstoken :" + user.getId());
 
-        PostResponse.ListDTO model = postService.공고리스트(categoryId,page);
+        PostResponse.ListDTO model = postService.공고리스트(categoryId, page);
 
         return ResponseEntity.ok()
                 .header("Authorization", "Bearer " + request.getHeader("Authorization")) // 토큰을 그대로 반환
@@ -53,18 +53,31 @@ public class PostController {
     }
 
 
-
     @GetMapping("/api/posts/{postId}")
     public ResponseEntity<?> postDetail(
             @PathVariable("postId") Integer postId,
             HttpServletRequest request
-    ){
+    ) {
 
-        User user =  (User) session.getAttribute("sessionUser");
+        User user = (User) session.getAttribute("sessionUser");
 
-        System.out.println("accesstoken :" +user.getId());
+        System.out.println("accesstoken :" + user.getId());
 
-        PostDetailResponse.PostDTO  model = postService.상세보기(postId);
+        PostDetailResponse.PostDTO model = postService.상세보기(postId);
+
+        return ResponseEntity.ok()
+                .header("Authorization", "Bearer " + request.getHeader("Authorization")) // 토큰을 그대로 반환
+                .body(Resp.ok(model));
+    }
+
+    @GetMapping("/api/category/{categoryId}")
+    public ResponseEntity<?> listPostsByCategoryV2(
+            @PathVariable("categoryId") int categoryId,
+            HttpServletRequest request) {
+        User user = (User) session.getAttribute("sessionUser");
+        System.out.println("accesstoken :" + user.getId());
+
+        PostResponse.ListDTO model = postService.카테고리별리스트보여주기(categoryId);
 
         return ResponseEntity.ok()
                 .header("Authorization", "Bearer " + request.getHeader("Authorization")) // 토큰을 그대로 반환
