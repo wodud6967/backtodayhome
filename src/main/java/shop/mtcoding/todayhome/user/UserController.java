@@ -1,5 +1,6 @@
 package shop.mtcoding.todayhome.user;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,13 @@ import shop.mtcoding.todayhome.core.util.Resp;
 public class UserController {
 
     private final UserService userService;
+    private final HttpSession session;
 
-    @GetMapping("/api/mypage") // 작업중
-    public ResponseEntity<?> getUser() {
-        return ResponseEntity.ok(Resp.ok(null));
+    @GetMapping("/api/user/myreview")
+    public ResponseEntity<?> getUserReview() {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        UserResponse.UserReviewDTO myReviewDTO = userService.나의리뷰조회(sessionUser);
+        return ResponseEntity.ok(Resp.ok(myReviewDTO));
     }
 
     @PostMapping("login")

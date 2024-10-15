@@ -22,9 +22,9 @@ public class ReviewService {
 
 
     @Transactional
-    public ReviewResponse.DTO 리뷰쓰기(ReviewRequest.SaveDTO saveDTO, User sessionUser) {
+    public ReviewResponse.DTO 리뷰쓰기(int id, ReviewRequest.SaveDTO saveDTO, User sessionUser) {
         // 1. Post 조회 (없으면 404)
-        Post postPS = postRepository.findById(saveDTO.getPostId())
+        Post postPS = postRepository.findById(id)
                 .orElseThrow(() -> new ExceptionApi404("상품 페이지를 찾을 수 없습니다."));
 
         // 2. base64 -> file 저장
