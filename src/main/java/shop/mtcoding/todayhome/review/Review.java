@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.post.Post;
 import shop.mtcoding.todayhome.user.User;
 
@@ -37,7 +38,6 @@ public class Review {
 
     @CreationTimestamp // em.persist 할때 발동
     private Timestamp createdAt;
-
 
     @Builder
     public Review(int id, Post post, User user, String content, String imgUrl, Double star, Timestamp createdAt) {
