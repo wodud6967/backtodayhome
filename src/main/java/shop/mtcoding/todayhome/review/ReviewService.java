@@ -34,12 +34,12 @@ public class ReviewService {
             imgUrl = MyFileUtil.파일저장(saveDTO.getImgUrl());
         } catch (Exception e) {
             e.printStackTrace();
-            imgUrl = "/images/noImg.png";
+            imgUrl = "./images/noImg.png";
         }
 
 
         // DB 에 저장할 때, 경로 없이 저장
-        String fileNameOnly = imgUrl.substring("./images/".length()); // 앞의 "./images/" 부분 제거
+        String fileNameOnly = imgUrl.substring("./images/".length()); // 앞의 "/images/" 부분 제거
 
         // 3. file 경로 가져와서 + 사진경로 DB 저장 + 비영속 리뷰 객체 만들기
         Review review = saveDTO.toEntity(sessionUser, postPS, fileNameOnly);
