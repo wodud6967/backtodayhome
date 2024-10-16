@@ -18,6 +18,13 @@ public class UserController {
     private final UserService userService;
     private final HttpSession session;
 
+    @GetMapping("/api/user/feed")
+    public ResponseEntity<?> getUserFeed() {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        UserResponse.UserDTO userDTO = userService.나의피드조회(sessionUser);
+        return ResponseEntity.ok(Resp.ok(userDTO));
+    }
+
     @GetMapping("/api/user/myorder")
     public ResponseEntity<?> getMyOrder() {
         User sessionUser = (User) session.getAttribute("sessionUser");

@@ -1,14 +1,14 @@
 -- 'ssar' 사용자는 관리자
-INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role)
-VALUES ('ssar', '1234', 'John', 25, 'ssar@nate.com', '01048086967', 'Seoul, South Korea', 'none', 'ADMIN');
+INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role, profile_img_url)
+VALUES ('ssar', '1234', 'John', 25, 'ssar@nate.com', '01048086967', 'Seoul, South Korea', 'none', 'ADMIN', 'https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516');
 
 -- 'cos' 사용자는 관리자
-INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role)
-VALUES ('cos', '1234', 'Chris', 30, 'cos@nate.com', '01048086967', 'Busan, South Korea', 'none', 'ADMIN');
+INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role, profile_img_url)
+VALUES ('cos', '1234', 'Chris', 30, 'cos@nate.com', '01048086967', 'Busan, South Korea', 'none', 'ADMIN','https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516');
 
 -- 'love' 사용자는 일반 사용자
-INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role)
-VALUES ('love', '1234', 'Lily', 28, 'love@nate.com', '01048086967', 'Incheon, South Korea', 'none', 'USER');
+INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role, profile_img_url)
+VALUES ('love', '1234', 'Lily', 28, 'love@nate.com', '01048086967', 'Incheon, South Korea', 'none', 'USER','https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516');
 
 
 INSERT INTO maincategory_tb (name)
@@ -339,6 +339,55 @@ VALUES ('https://example.com/percis_detail1.jpg', 'detail', 6); -- 상세 사진
 INSERT INTO photo_tb (url, type, post_id)
 VALUES ('https://example.com/percis_detail2.jpg', 'detail', 6); -- 상세 사진 2
 
+-- UserFeed
+-- 'ssar' 사용자의 침대 관련 피드
+INSERT INTO userfeed_tb(category, content, date, user_id, post_id)
+VALUES ('침대', '시몬스 침대를 구매했어요! 정말 편안해요.', '2024-10-01', 1, 1);
+
+INSERT INTO userfeed_tb(category, content, date, user_id, post_id)
+VALUES ('침대', '에이스 침대를 구매했습니다. 정말 푹 잘 자고 있어요!', '2024-10-02', 1, 3);
+
+INSERT INTO userfeed_tb(category, content, date, user_id, post_id)
+VALUES ('침대', '한샘의 침대 너무 좋아요. 공간도 넉넉해서 좋습니다.', '2024-10-03', 1, 2);
+
+-- 'cos' 사용자의 침대 관련 피드
+INSERT INTO userfeed_tb(category, content, date, user_id, post_id)
+VALUES ('침대', '슬로우베드로 바꿨는데, 정말 푹 자요.', '2024-10-04', 2,10);
+
+INSERT INTO userfeed_tb(category, content, date, user_id, post_id)
+VALUES ('침대', '템퍼의 매트리스는 진짜 잘 자게 해줍니다!', '2024-10-05', 2,7);
+
+-- 'love' 사용자의 침대 관련 피드
+INSERT INTO userfeed_tb(category, content, date, user_id, post_id)
+VALUES ('침대', '가족과 함께 사용할 수 있는 넉넉한 침대! 좋아요.', '2024-10-06', 3,6);
+
+INSERT INTO userfeed_tb(category, content, date, user_id, post_id)
+VALUES ('침대', '이불세트와 함께 구매했어요. 완벽한 조합입니다!', '2024-10-07', 3,5);
+
+-- UserFeedPhoto
+-- 'ssar' 사용자의 침대 관련 피드 사진
+INSERT INTO userfeedphoto_tb(type, url, user_feed_id)
+VALUES ('대표이미지', 'https://image.hanssem.com/hsimg/gds/1050/1046/1046294_A1.jpg?v=20240906134132', 1);
+
+INSERT INTO userfeedphoto_tb(type, url, user_feed_id)
+VALUES ('서브이미지', 'https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516', 1);
+
+INSERT INTO userfeedphoto_tb(type, url, user_feed_id)
+VALUES ('대표이미지', 'https://image.hanssem.com/hsimg/gds/330/992/992693_A1.jpg?v=20240812104935', 2);
+
+-- 'cos' 사용자의 침대 관련 피드 사진
+INSERT INTO userfeedphoto_tb(type, url, user_feed_id)
+VALUES ('대표이미지', 'https://image.hanssem.com/hsimg/gds/1050/1046/1046294_A1.jpg?v=20240906134132', 3);
+
+INSERT INTO userfeedphoto_tb(type, url, user_feed_id)
+VALUES ('서브이미지', 'https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516', 3);
+
+-- 'love' 사용자의 침대 관련 피드 사진
+INSERT INTO userfeedphoto_tb(type, url, user_feed_id)
+VALUES ('대표이미지', 'https://image.hanssem.com/hsimg/gds/330/992/992693_A1.jpg?v=20240812104935', 4);
+
+INSERT INTO userfeedphoto_tb(type, url, user_feed_id)
+VALUES ('서브이미지', 'https://image.hanssem.com/hsimg/gds/1050/1046/1046294_A1.jpg?v=20240906134132', 4);
 
 
 

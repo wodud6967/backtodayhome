@@ -1,16 +1,73 @@
 package shop.mtcoding.todayhome.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.Data;
 import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.orderdetail.OrderDetail;
 import shop.mtcoding.todayhome.post.PostDetailResponse;
 import shop.mtcoding.todayhome.review.Review;
+import shop.mtcoding.todayhome.userfeed.UserFeed;
+import shop.mtcoding.todayhome.userfeedphoto.UserFeedPhoto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserResponse {
+
+    @Data
+    public static class UserDTO {
+        private Integer id;
+        private String userName;
+        private String profileImgUrl;
+        private List<UserFeedDTO> userFeeds = new ArrayList<>();
+
+        public UserDTO(User user) {
+            this.id = user.getId();
+            this.userName = user.getUsername();
+            this.profileImgUrl = user.getProfileImgUrl();
+
+            for (UserFeed userFeed : user.getUserFeeds()) {
+                userFeeds.add(new UserFeedDTO(userFeed));
+            }
+        }
+
+        @Data
+        public static class UserFeedDTO {
+            private Integer id;
+            private String category;
+            private String content;
+            private Integer postId;
+            private String date;
+            private List<UserFeedPhotoDTO> userFeedPhotos = new ArrayList<>();
+
+            public UserFeedDTO(UserFeed userFeed) {
+                this.id = userFeed.getId();
+                this.category = userFeed.getCategory();
+                this.content = userFeed.getContent();
+                this.postId = userFeed.getPost().getId();
+                this.date = userFeed.getDate();
+
+                for (UserFeedPhoto userFeedPhoto : userFeed.getFeedPhotos()) {
+                    userFeedPhotos.add(new UserFeedPhotoDTO(userFeedPhoto));
+                }
+            }
+        }
+
+        @Data
+        public static class UserFeedPhotoDTO {
+            private Integer id;
+            private String type;
+            private String url;
+
+            public UserFeedPhotoDTO(UserFeedPhoto userFeedPhoto) {
+                this.id = userFeedPhoto.getId();
+                this.type = userFeedPhoto.getType();
+                this.url = userFeedPhoto.getUrl();
+            }
+        }
+
+    }
 
     @Data
     public static class UserOrderDTOV2 {

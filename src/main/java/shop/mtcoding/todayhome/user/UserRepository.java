@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
@@ -17,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("select u from User u join fetch u.reviews rv join fetch rv.post p where u.id = :id")
     Optional<User> teacherFindV2(@Param("id") int id);
 
+    @Query("select u from User u join fetch u.userFeeds f join fetch f.post where u.id = :id")
+    Optional<User> findByIdWithFeed(@Param("id") int id);
 }

@@ -27,11 +27,11 @@ public class Photo {
     @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
 
-
     @Builder
-    public Photo(int id, String url, Post post) {
+    public Photo(int id, String url, String type, Post post) {
         this.id = id;
         this.url = url;
+        this.type = type;
         this.post = post;
     }
 }
