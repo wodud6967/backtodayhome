@@ -17,9 +17,9 @@ public class OrderController {
     private final HttpSession session;
 
     @PostMapping("/api/order")
-    public ResponseEntity<?> insertOrder(@RequestBody OrderRequest.DTO orderRequest) {
+    public ResponseEntity<?> insertOrder( @RequestBody List<OrderRequest.CartDTO> cartDTOList) {
         User user = (User) session.getAttribute("sessionUser");
-        OrderResponse.DTO orderPage = orderService.insertOrder(user, orderRequest);
+        OrderResponse.DTO orderPage = orderService.insertOrder(user, cartDTOList);
         return ResponseEntity.ok(Resp.ok(orderPage,"주문서 생성 완료"));
     }
 

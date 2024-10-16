@@ -27,8 +27,11 @@ public class OrderRepositoryTest {
     @Test
     public void test(){
         String pid = "merchant_001";
-        List<OrderResponse.OrderDetailDTO> orderDetailDTOList = orderRepository.mfindOrderdetailDTO(pid);
-        System.out.println(orderDetailDTOList);
+
+        OrderResponse.OrderDTO orderDTO = orderRepository.mfindOrderDTO(pid);
+
+        System.out.println(orderDTO.toString());
+
     }
 
 
