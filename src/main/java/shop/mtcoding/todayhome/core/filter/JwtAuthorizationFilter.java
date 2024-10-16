@@ -14,7 +14,7 @@ import shop.mtcoding.todayhome.user.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@Component
+
 public class JwtAuthorizationFilter implements Filter {
 
     @Override
@@ -32,6 +32,7 @@ public class JwtAuthorizationFilter implements Filter {
             String responseBody = new ObjectMapper().writeValueAsString(fail);
             out.println(responseBody);
             out.flush();
+
             return;
 
 
