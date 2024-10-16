@@ -18,7 +18,7 @@ public class UserController {
     private final UserService userService;
     private final HttpSession session;
 
-    @GetMapping("/api/user/myorder") // 작업중
+    @GetMapping("/api/user/myorder")
     public ResponseEntity<?> getMyOrder() {
         User sessionUser = (User) session.getAttribute("sessionUser");
         UserResponse.UserOrderDTO myOrderDTO = userService.나의주문조회(sessionUser);

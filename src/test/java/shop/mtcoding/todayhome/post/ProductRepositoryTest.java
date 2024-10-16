@@ -3,16 +3,12 @@ package shop.mtcoding.todayhome.post;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import shop.mtcoding.todayhome.product.Product;
 import shop.mtcoding.todayhome.review.Review;
 
 import java.util.List;
 
 @DataJpaTest
-public class ProductRepository {
+public class ProductRepositoryTest {
 
     @Autowired
     private PostRepository postRepository;
