@@ -3,8 +3,7 @@ package shop.mtcoding.todayhome.cart;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import shop.mtcoding.todayhome.core.util.Resp;
 import shop.mtcoding.todayhome.user.User;
 
@@ -25,5 +24,11 @@ public class CartController {
         return ResponseEntity.ok(Resp.ok(cartList,"장바구니 조회완료"));
     }
 
+    @PostMapping("/api/cart")
+    public ResponseEntity<?> insertcart(@RequestBody CartRequest.DTO cartRequest) {
+        User user = (User) session.getAttribute("sessionUser");
+        List<CartResponse.DTO> cartList = cartService.insertCart(user, cartRequest);
+        return ResponseEntity.ok(Resp.ok(cartList,"장바구니 추가 및 조회완료"));
+    }
 
 }
