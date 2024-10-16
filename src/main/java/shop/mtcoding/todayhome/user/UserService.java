@@ -21,6 +21,17 @@ public class UserService {
     private final UserRepository userRepository;
     private final InventoryRepository inventoryRepository;
 
+    public UserResponse.UserDTO 나의피드조회(User sessionUser) {
+        // 1. 유저 조회 (유저+피드 JOIN 됨)
+        User userPS = userRepository.findByIdWithFeed(sessionUser.getId())
+                .orElseThrow(() -> new ExceptionApi404("유저 정보를 찾을 수 없습니다람쥐."));
+
+        // 2. DTO
+        UserResponse.UserDTO userDTO = new UserResponse.UserDTO(userPS);
+
+        return userDTO;
+    }
+
     public UserResponse.UserOrderDTO 나의주문조회(User sessionUser) {
 
         // 1. 유저 조회

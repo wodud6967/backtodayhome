@@ -19,6 +19,14 @@ public class UserRepositoryTest {
     @Autowired
     InventoryRepository inventoryRepository;
 
+
+    @Test
+    public void findByIdWithFeed_test() {
+
+        Optional<User> userPS = userRepository.findByIdWithFeed(1);
+        System.out.println(userPS.get().getName());
+    }
+
     @Test
     public void teacherFind_test(){
         userRepository.teacherFindV2(1);
