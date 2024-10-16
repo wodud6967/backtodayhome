@@ -24,7 +24,7 @@ public class UserResponse {
 
         public UserDTO(User user) {
             this.id = user.getId();
-            this.userName = user.getUsername();
+            this.userName = user.getName();
             this.profileImgUrl = user.getProfileImgUrl();
 
             for (UserFeed userFeed : user.getUserFeeds()) {
@@ -52,7 +52,7 @@ public class UserResponse {
                 this.postId = userFeed.getPost().getId();
                 this.date = userFeed.getDate();
 
-                this.userName = userFeed.getUser().getUsername();
+                this.userName = userFeed.getUser().getName();
                 this.profileImgUrl = userFeed.getUser().getProfileImgUrl();
 
                 for (UserFeedPhoto userFeedPhoto : userFeed.getFeedPhotos()) {
