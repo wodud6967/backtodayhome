@@ -24,4 +24,6 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
     @Query("select i from Inventory i join fetch i.product p left join fetch p.post where i.id=:id")
     Optional<Inventory> findByIdWithPostTitleAndMainPhoto(@Param("id") int id);
 
+    @Query("select i from Inventory i join fetch i.product p left join fetch p.post where i.id in :ids")
+    List<Inventory> findByIdWithPostTitleAndMainPhotoV2(@Param("ids") List<Integer> ids);
 }
