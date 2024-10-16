@@ -8,6 +8,8 @@ import shop.mtcoding.todayhome.core.error.ex.ExceptionApi404;
 import shop.mtcoding.todayhome.core.util.JwtUtil;
 import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.inventory.InventoryRepository;
+import shop.mtcoding.todayhome.userfeed.UserFeed;
+import shop.mtcoding.todayhome.userfeed.UserFeedRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +22,29 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final InventoryRepository inventoryRepository;
+    private final UserFeedRepository userFeedRepository;
 
     public UserResponse.UserDTO 나의피드조회(User sessionUser) {
         // 1. 유저 조회 (유저+피드 JOIN 됨)
-        User userPS = userRepository.findByIdWithFeed(sessionUser.getId())
-                .orElseThrow(() -> new ExceptionApi404("유저 정보를 찾을 수 없습니다람쥐."));
 
-        // 2. DTO
-        UserResponse.UserDTO userDTO = new UserResponse.UserDTO(userPS);
 
-        return userDTO;
+        User userPS = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new ExceptionApi404("유저 정보를 찾을 수 없습니다람쥐."));
+
+        UserResponse.UserDTO myUser = new UserResponse.UserDTO(userPS);
+
+        List<UserFeed> userFeeds = userFeedRepository.findAll();
+
+        List<UserResponse.UserDTO.UserFeedDTO> userFeedDTOs = new ArrayList<>();
+
+        for (UserFeed feed : userFeeds) {
+            userFeedDTOs.add(new UserResponse.UserDTO.UserFeedDTO(feed));
+        }
+
+
+        myUser.getUserFeeds().addAll(userFeedDTOs);
+
+
+        return myUser;
     }
 
     public UserResponse.UserOrderDTO 나의주문조회(User sessionUser) {

@@ -27,9 +27,7 @@ public class UserResponse {
             this.userName = user.getName();
             this.profileImgUrl = user.getProfileImgUrl();
 
-            for (UserFeed userFeed : user.getUserFeeds()) {
-                userFeeds.add(new UserFeedDTO(userFeed));
-            }
+
         }
 
         @Data
