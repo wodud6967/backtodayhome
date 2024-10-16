@@ -232,4 +232,10 @@ public class PostService {
         System.out.println("여기까지 6");
         return postDTO;
     }
+
+    public PostResponse.ListDTO 카테고리별리스트보여주기(int categoryId) {
+        List<Post> bestSellingPosts = postRepository.findAllByCategoryId(categoryId);
+        List<Post> recentPosts = postRepository.findAllByCategoryId(categoryId);
+        return new PostResponse.ListDTO(recentPosts, bestSellingPosts);
+    }
 }

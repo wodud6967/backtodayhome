@@ -16,8 +16,6 @@ import java.util.List;
 public class PostResponse {
     @Data
     public static class ListDTO {
-        private Integer selectedCategory;
-        private String testString = "테스트중";
         private List<RecentPostsDTO> recentPostsDTOS = new ArrayList<>();
         private List<PageTotalSoldDto> pageTotalSoldDtos = new ArrayList<>();
 
@@ -32,6 +30,7 @@ public class PostResponse {
 
         @Data
         public class RecentPostsDTO {
+            private int id;
             private String title;
             private String content;
             private int price;
@@ -40,6 +39,7 @@ public class PostResponse {
             private List<ReviewDto> reviews = new ArrayList<>();
 
             public RecentPostsDTO(Post post) {
+                this.id = post.getId();
                 this.title = post.getTitle();
                 this.content = post.getContent();
                 this.price = post.getPrice();
@@ -55,6 +55,7 @@ public class PostResponse {
 
         @Data
         public class PageTotalSoldDto {
+            private int id;
             private String title;
             private String content;
             private int price;
@@ -63,6 +64,7 @@ public class PostResponse {
             private List<ReviewDto> reviews = new ArrayList<>();
 
             public PageTotalSoldDto(Post post) {
+                this.id = post.getId();
                 this.title = post.getTitle();
                 this.content = post.getContent();
                 this.price = post.getPrice();

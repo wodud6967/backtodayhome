@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import shop.mtcoding.todayhome.core.util.Resp;
 
+import java.util.Map;
+
 @RequiredArgsConstructor
 @Controller
 public class UserController {
@@ -32,10 +34,10 @@ public class UserController {
 
     @PostMapping("login")
     public ResponseEntity<?> login(@RequestBody UserRequest.LoginDTO loginDTO){
-        String accessToken = userService.로그인(loginDTO);
+        UserResponse.LoginDTO responseDTO = userService.로그인(loginDTO);
 
         return ResponseEntity.ok()
-                .header("Authorization","Bearer " + accessToken)
-                .body(Resp.ok(null));
+                .header("Authorization","Bearer " + responseDTO.accessToken())
+                .body(Resp.ok(responseDTO));
     }
 }

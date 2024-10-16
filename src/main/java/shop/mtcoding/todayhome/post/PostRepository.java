@@ -47,6 +47,7 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     List<Product> findAdditionalProducts();
 
 
-
+    @Query("SELECT p FROM Post p WHERE p.subCategory.id = :categoryId")
+    List<Post> findAllByCategoryId(int categoryId);
 
 }

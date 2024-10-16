@@ -1,5 +1,6 @@
 package shop.mtcoding.todayhome.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import shop.mtcoding.todayhome.order.Order;
 import shop.mtcoding.todayhome.orderdetail.OrderDetail;
@@ -99,5 +100,11 @@ public class UserResponse {
             }
         }
 
+
+    }
+    record LoginDTO(@JsonIgnore String accessToken, Integer id, String username) {
+        LoginDTO(String accessToken, User user) {
+            this(accessToken, user.getId(), user.getUsername());
+        }
     }
 }
