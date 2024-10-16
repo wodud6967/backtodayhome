@@ -11,7 +11,7 @@ public class CartResponse {
         private int price;
         private int totalPrice;
         private int userId;
-
+        private int inventoryId;
         private String name;
         private String title;
         private String content;
@@ -25,6 +25,7 @@ public class CartResponse {
             this.price = cart.getPrice();
             this.totalPrice = cart.getTotalPrice();
             this.userId = cart.getUser().getId();
+            this.inventoryId = cart.getInventory().getId();
             this.name = cart.getInventory().getProduct().getName();
             this.title = cart.getInventory().getProduct().getPost().getTitle();
             this.content = cart.getInventory().getProduct().getPost().getContent();

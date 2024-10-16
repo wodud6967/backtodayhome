@@ -1,6 +1,8 @@
 package shop.mtcoding.todayhome.order;
 
 import lombok.Data;
+import org.springframework.data.repository.query.Param;
+import shop.mtcoding.todayhome.cart.Cart;
 import shop.mtcoding.todayhome.inventory.Inventory;
 import shop.mtcoding.todayhome.orderdetail.OrderDetail;
 import shop.mtcoding.todayhome.user.User;
@@ -15,13 +17,13 @@ public class OrderRequest {
         private Inventory inventory;
 
 
-        public OrderDetail toEntity(Order order, Inventory inventory, OrderDetailDTO orderDetailDTO){
+        public OrderDetail toEntity(Order order, Inventory inventory, Cart cart){
             return OrderDetail.builder()
                     .order(order)
                     .inventory(inventory)
-                    .count(orderDetailDTO.getCount())
-                    .price(orderDetailDTO.getPrice())
-                    .totalPrice(orderDetailDTO.getPrice())
+                    .count(cart.getCount())
+                    .price(cart.getPrice())
+                    .totalPrice(cart.getPrice())
                     .build();
         }
 
@@ -42,7 +44,6 @@ public class OrderRequest {
                     .quantity(quantity)
                     .build();
         }
-
 
     }
 
@@ -72,6 +73,24 @@ public class OrderRequest {
             this.count = count;
             this.price = price;
             this.totalPrice = totalPrice;
+        }
+    }
+
+    @Data
+    public static class CartDTO {
+        private int id;
+
+        public CartDTO() {}
+        public CartDTO(int id) {
+            this.id = id;
+        }
+    }
+    @Data
+    public static class CartListDTO {
+        private List<CartDTO> carts;
+
+        public CartListDTO(List<CartDTO> carts) {
+            this.carts = carts;
         }
     }
 

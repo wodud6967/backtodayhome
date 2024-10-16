@@ -3,6 +3,7 @@ package shop.mtcoding.todayhome.cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import shop.mtcoding.todayhome.order.OrderRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,4 +16,6 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
     @Query("select c.id from Cart c where c.inventory.id =:inventoryId")
     int findCartByInventoryId(@Param("inventoryId") int inventoryId);
 
+    @Query("SELECT c FROM Cart c WHERE c.id =:cartDTOList")
+    List<Cart> findCountAndPriceByIds(@Param("cartDTOList") List<Integer> cartDTOList);
 }

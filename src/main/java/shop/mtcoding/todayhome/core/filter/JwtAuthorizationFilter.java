@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jdk.swing.interop.SwingInterOpUtils;
+import org.springframework.stereotype.Component;
 import shop.mtcoding.todayhome.core.util.JwtUtil;
 import shop.mtcoding.todayhome.core.util.Resp;
 import shop.mtcoding.todayhome.user.User;
@@ -13,7 +14,9 @@ import shop.mtcoding.todayhome.user.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@Component
 public class JwtAuthorizationFilter implements Filter {
+
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;

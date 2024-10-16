@@ -49,6 +49,7 @@ public class OrderResponse {
         private String partnerOrderId;
         private int totalAmount;
         private int quantity;
+        private int userId;
         private String userName;
         private String phone;
         private String address;
@@ -58,6 +59,7 @@ public class OrderResponse {
             this.partnerOrderId = order.getPartnerOrderId();
             this.totalAmount = order.getTotalAmount();
             this.quantity = order.getQuantity();
+            this.userId = order.getUser().getId();
             this.userName = order.getUser().getName();
             this.phone = order.getUser().getPhone();
             this.address = order.getUser().getAddress();
