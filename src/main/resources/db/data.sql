@@ -1,14 +1,14 @@
 -- 'ssar' 사용자는 관리자
 INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role, profile_img_url)
-VALUES ('ssar', '1234', 'John', 25, 'ssar@nate.com', '01048086967', 'Seoul, South Korea', 'none', 'ADMIN', 'https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516');
+VALUES ('ssar', '1234', 'John', 25, 'ssar@nate.com', '01048086967', 'Seoul, South Korea', 'none', 'ADMIN', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTLz9McONpMnWoSq8EP3R7lqH5nkuEOVPT3g&s');
 
 -- 'cos' 사용자는 관리자
 INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role, profile_img_url)
-VALUES ('cos', '1234', 'Chris', 30, 'cos@nate.com', '01048086967', 'Busan, South Korea', 'none', 'ADMIN','https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516');
+VALUES ('cos', '1234', 'Chris', 30, 'cos@nate.com', '01048086967', 'Busan, South Korea', 'none', 'ADMIN','https://s.widget-club.com/images/YyiR86zpwIMIfrCZoSs4ulVD9RF3/d1913b69cea56dc6e68c3a995a568702/5fc1f919e2e87fe697ce2756910abb4a.jpg?q=70&w=500');
 
 -- 'love' 사용자는 일반 사용자
 INSERT INTO user_tb(username, password, name, age, email, phone, address, oauth, role, profile_img_url)
-VALUES ('love', '1234', 'Lily', 28, 'love@nate.com', '01048086967', 'Incheon, South Korea', 'none', 'USER','https://image.hanssem.com/hsimg/gds/1050/1064/1064629_A1.jpg?v=20241002161516');
+VALUES ('love', '1234', 'Lily', 28, 'love@nate.com', '01048086967', 'Incheon, South Korea', 'none', 'USER','https://i.pinimg.com/236x/3c/a1/a9/3ca1a99306295859d5f66814b68e69c0.jpg');
 
 
 INSERT INTO maincategory_tb (name)
