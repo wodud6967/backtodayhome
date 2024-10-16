@@ -39,6 +39,10 @@ public class UserResponse {
             private String content;
             private Integer postId;
             private String date;
+
+            private String userName;
+            private String profileImgUrl;
+
             private List<UserFeedPhotoDTO> userFeedPhotos = new ArrayList<>();
 
             public UserFeedDTO(UserFeed userFeed) {
@@ -47,6 +51,9 @@ public class UserResponse {
                 this.content = userFeed.getContent();
                 this.postId = userFeed.getPost().getId();
                 this.date = userFeed.getDate();
+
+                this.userName = userFeed.getUser().getUsername();
+                this.profileImgUrl = userFeed.getUser().getProfileImgUrl();
 
                 for (UserFeedPhoto userFeedPhoto : userFeed.getFeedPhotos()) {
                     userFeedPhotos.add(new UserFeedPhotoDTO(userFeedPhoto));
