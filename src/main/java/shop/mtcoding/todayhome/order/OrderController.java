@@ -16,7 +16,7 @@ public class OrderController {
     private final OrderService orderService;
     private final HttpSession session;
 
-    @PostMapping("/api/order/insert")
+    @PostMapping("/api/order")
     public ResponseEntity<?> insertOrder(@RequestBody OrderRequest.DTO orderRequest) {
         User user = (User) session.getAttribute("sessionUser");
         OrderResponse.DTO orderPage = orderService.insertOrder(user, orderRequest);
