@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import shop.mtcoding.todayhome.core.util.Resp;
 
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -21,8 +22,11 @@ public class UserController {
     @GetMapping("/api/user/feed")
     public ResponseEntity<?> getUserFeed() {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        UserResponse.UserDTO userDTO = userService.나의피드조회(sessionUser);
-        return ResponseEntity.ok(Resp.ok(userDTO));
+
+        // 만약 모든 유저의 피드를 조회하는 기능이라면, sessionUser를 파라미터로 넘기지 않고 그냥 호출
+        List<UserResponse.UserDTO> userDTOList = userService.모든유저피드조회();
+
+        return ResponseEntity.ok(userDTOList);
     }
 
     @GetMapping("/api/user/myorder")

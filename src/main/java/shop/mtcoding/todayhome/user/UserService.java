@@ -11,6 +11,7 @@ import shop.mtcoding.todayhome.inventory.InventoryRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Transactional(readOnly = true)
@@ -21,15 +22,16 @@ public class UserService {
     private final UserRepository userRepository;
     private final InventoryRepository inventoryRepository;
 
-    public UserResponse.UserDTO 나의피드조회(User sessionUser) {
-        // 1. 유저 조회 (유저+피드 JOIN 됨)
-        User userPS = userRepository.findByIdWithFeed(sessionUser.getId())
-                .orElseThrow(() -> new ExceptionApi404("유저 정보를 찾을 수 없습니다람쥐."));
+    public List<UserResponse.UserDTO> 모든유저피드조회() {
+        // 1. 모든 유저 조회 (유저+피드 JOIN 됨)
+        List<User> userList = userRepository.findAllWithFeeds();
 
-        // 2. DTO
-        UserResponse.UserDTO userDTO = new UserResponse.UserDTO(userPS);
+        // 2. 유저 리스트를 DTO 리스트로 변환
+        List<UserResponse.UserDTO> userDTOList = userList.stream()
+                .map(user -> new UserResponse.UserDTO(user))
+                .collect(Collectors.toList());
 
-        return userDTO;
+        return userDTOList;
     }
 
     public UserResponse.UserOrderDTO 나의주문조회(User sessionUser) {
