@@ -17,22 +17,25 @@
 
 ## 🚀 프로젝트 소개 <a name="프로젝트-소개"></a>
 
-이 프로젝트는 [Java - Spring], [Dart - Flutter] 를 사용하여 만들어졌으며, 주요 기능은 다음과 같습니다:
-
-- 간단하고 빠른 성능
-- 모듈화된 코드
-- 누구나 쉽게 사용 가능
-
+이 프로젝트는 [Java - Spring], [Dart - Flutter] 를 사용하여 만들어졌으며,
+ 
 프로젝트의 목표는 실무에서 재활용 가능한 기술로 **오늘의 집 앱의 핵심인 '쇼핑' 과 '둘러보기' 가 가능한 쇼핑몰 앱을 만드는 것**입니다.
 
 ---
 
 ## ✨ 기능 <a name="기능"></a>
 
-- **기능 1**: 침대 쇼핑(품목 한정) / 커뮤니티 유저 피드 둘러보기 핵심 기능 제공 
-- **기능 2**: 사용자 친화적인 인터페이스 제공
-- **기능 3**: 확장성이 높은 아키텍처
+### 프론트엔드 
+- **로그인 및 회원가입**: Firebase Authentication을 사용한 사용자 인증
+- **마이페이지**: 사용자 정보 및 주문 내역 조회, 리뷰쓰기
+- **상품 상세보기**: 상품의 상세 정보, 이미지 및 구매 옵션 선택
+- **피드 보기**:  커뮤니티 유저 피드 전체 조회
 
+### 백엔드
+- **카테고리 및 상품 리스트**: 상품 정보 조회 및 카테고리별 필터링 기능
+- **상품 관리**: 상품 등록
+- **결제 처리**: 결제 연동 및 주문 관리
+- **피드 보기**: 커뮤니티 유저 피드 전체 조회
 ---
 
 ## 🛠️ 설치 방법 <a name="설치-방법"></a>
@@ -43,7 +46,16 @@ Android Studio 에서 https://github.com/wodud6967/fronttodayhome.git 실행
 
 ---
 
-## PPT 
+## 🎥 시연 영상
+<p align="center">
+  <a href="https://youtu.be/BlS3Vq5PD1Y?feature=shared" target="_blank">
+    <img src="https://img.shields.io/badge/오늘의%20집-red?style=for-the-badge&logo=youtube&logoColor=white" alt="오늘의 집">
+  </a>
+</p>
+
+
+---
+## 📊 PPT 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cff3c3f2-8fc7-413f-9999-7f35101be2b2" alt="Screenshot" width="400"/>
   <img src="https://github.com/user-attachments/assets/7f966e29-06a0-40c8-bd02-90b9f4287978" alt="Screenshot" width="400"/>
